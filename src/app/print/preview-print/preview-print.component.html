@@ -1,0 +1,29 @@
+<div *ngIf="printContent">
+  <pdf-viewer
+    style="display:block;"
+    [src]="printContent"
+    [show-all]="false"
+    [zoom]="0.8"
+    [page]="page"
+  ></pdf-viewer>
+</div>
+<div *ngIf="printContent" style="text-align: center;">
+  <button
+    mat-icon-button
+    (click)="prevPage()"
+    [disabled]="page === data.startPage"
+  >
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span>{{ page }} / {{ data.endPage }}</span>
+  <button
+    mat-icon-button
+    (click)="nextPage()"
+    [disabled]="page === data.endPage"
+  >
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>
+<button mat-raised-button color="warn" style="float: right;" (click)="close()">
+  CLOSE
+</button>

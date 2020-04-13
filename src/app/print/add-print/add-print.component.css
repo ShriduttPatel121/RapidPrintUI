@@ -1,0 +1,14 @@
+pdf-viewer {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.pdfContainer {
+  height: 75%;
+  width: 75%;
+}
+.expansionlist {
+  width: 75%;
+  margin: auto;
+  margin-top: 6px;
+}

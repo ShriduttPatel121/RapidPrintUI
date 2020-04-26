@@ -1,0 +1,74 @@
+<mat-card class="example-container">
+  <mat-card-header style="display: block;">
+    <mat-card-title><h1 style="text-align: center;">LOGIN</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content
+    ><div>
+      <form [style.fontSize.px]="18">
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input matInput [formControl]="emailFormControl" required />
+          <mat-error
+            *ngIf="
+              emailFormControl.hasError('email') ||
+              emailFormControl.hasError('required')
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            required
+            [formControl]="passwordFormControl"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Please enter a Password
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.errors?.minlength">
+            Password should be 8 character long atleast
+          </mat-error>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br />
+      </form></div
+  ></mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      style="width: 95%; margin-left: 1rem; height: 45px;"
+      color="primary"
+      [disabled]="!isValid()"
+      (click)="logInWithEmail()"
+    >
+      <mat-icon>email</mat-icon>
+      Login with Email
+    </button>
+    <button
+      mat-raised-button
+      style="width: 95%; margin-left: 1rem; margin-top: 1rem; height: 45px;"
+      color="primary"
+      (click)="logInWithGoogle()"
+    >
+      <img
+        width="20px"
+        style="margin-bottom: 3px; margin-right: 5px;"
+        alt="Google sign-in"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+      />
+      Continue with Google
+    </button>
+  </mat-card-actions>
+</mat-card>

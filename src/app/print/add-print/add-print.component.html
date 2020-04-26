@@ -1,90 +1,100 @@
-<form>
+<div *ngIf="progress == 0">
+  <form>
+    <button
+      mat-raised-button
+      type="button"
+      (click)="filePicker.click()"
+      style="margin: 1rem 1rem;"
+      color="primary"
+    >
+      ADD PRINT
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <input
+      type="file"
+      style="visibility: hidden;"
+      #filePicker
+      accept="application/pdf"
+      (change)="handleUpload($event)"
+    />
+    <a
+      href="https://www.ilovepdf.com/split_pdf"
+      style="text-decoration: none; float: right; margin: 1rem 1rem;"
+      target="_blank"
+      >need to split your pdf?</a
+    >
+  </form>
+
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel
+        *ngFor="let print of prints; let i = index"
+        class="expansionlist"
+        (closed)="changePrint(i)"
+      >
+        <mat-expansion-panel-header
+          ><mat-panel-title>
+            {{ print.name | uppercase }}
+          </mat-panel-title></mat-expansion-panel-header
+        >
+        <mat-slide-toggle [(ngModel)]="print.isColor">COLOR</mat-slide-toggle>
+        <br />
+        <mat-slide-toggle [(ngModel)]="print.isSingleSided"
+          >SINGLE SIDED</mat-slide-toggle
+        >
+        <h3>Pages:</h3>
+        <ng5-slider
+          [(value)]="print.startPage"
+          [(highValue)]="print.endPage"
+          [options]="{ floor: 1, ceil: print.totalPages, showTicks: true }"
+        ></ng5-slider>
+        <h3>Number of print:</h3>
+        <mat-form-field
+          ><input matInput type="number" [(ngModel)]="print.numOfPrint"
+        /></mat-form-field>
+        <br />
+        <mat-form-field>
+          <mat-label>Type of paper:</mat-label>
+          <mat-select [(ngModel)]="print.pageType">
+            <mat-option value="A3">
+              {{ "A3" }}
+            </mat-option>
+            <mat-option value="A4">
+              {{ "A4" }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-action-row
+          ><button mat-raised-button color="warn" (click)="deleteFile(i)">
+            DELETE
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 15px;"
+            (click)="previewFile(i)"
+          >
+            PRIVIEW
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
   <button
     mat-raised-button
-    type="button"
-    (click)="filePicker.click()"
-    style="margin: 1rem 1rem;"
     color="primary"
+    *ngIf="prints.length > 0"
+    style="margin-top: 2rem; margin-left: 35%;"
+    (click)="submitPrint()"
   >
-    ADD PRINT
-    <mat-icon>add_circle</mat-icon>
+    <mat-icon> print</mat-icon> Take Print
   </button>
-  <input
-    type="file"
-    style="visibility: hidden;"
-    #filePicker
-    accept="application/pdf"
-    (change)="handleUpload($event)"
-  />
-  <a
-    href="https://www.ilovepdf.com/split_pdf"
-    style="text-decoration: none; float: right; margin: 1rem 1rem;"
-    target="_blank"
-    >need to split your pdf?</a
-  >
-</form>
-
-<div>
-  <mat-accordion>
-    <mat-expansion-panel
-      *ngFor="let print of prints; let i = index"
-      class="expansionlist"
-      (closed)="changePrint(i)"
-    >
-      <mat-expansion-panel-header
-        ><mat-panel-title>
-          {{ print.name }}
-        </mat-panel-title></mat-expansion-panel-header
-      >
-      <mat-slide-toggle [(ngModel)]="print.isColor">COLOR</mat-slide-toggle>
-      <br />
-      <mat-slide-toggle [(ngModel)]="print.isSingleSided"
-        >SINGLE SIDED</mat-slide-toggle
-      >
-      <h3>Pages:</h3>
-      <ng5-slider
-        [(value)]="print.startPage"
-        [(highValue)]="print.endPage"
-        [options]="{ floor: 1, ceil: print.totalPages, showTicks: true }"
-      ></ng5-slider>
-      <h3>Number of print:</h3>
-      <mat-form-field
-        ><input matInput type="number" [(ngModel)]="print.numOfPrint"
-      /></mat-form-field>
-      <br />
-      <mat-form-field>
-        <mat-label>Type of paper:</mat-label>
-        <mat-select [(ngModel)]="print.pageType">
-          <mat-option value="A3">
-            {{ "A3" }}
-          </mat-option>
-          <mat-option value="A4">
-            {{ "A4" }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-action-row
-        ><button mat-raised-button color="warn" (click)="deleteFile(i)">
-          DELETE
-        </button>
-        <button
-          mat-raised-button
-          color="primary"
-          style="margin-left: 15px;"
-          (click)="previewFile(i)"
-        >
-          PRIVIEW
-        </button>
-      </mat-action-row>
-    </mat-expansion-panel>
-  </mat-accordion>
 </div>
-<button
-  mat-raised-button
-  color="primary"
-  *ngIf="prints.length > 0"
-  style="margin-top: 2rem; margin-left: 35%;"
-  (click)="submitPrint()"
->
-  <mat-icon> print</mat-icon> Take Print
-</button>
+<div *ngIf="progress != 0">
+  <h2 class="progress-text">Uploading... {{ progress }}%</h2>
+  <mat-progress-bar
+    class="progress"
+    mode="determinate"
+    [value]="progress"
+  ></mat-progress-bar>
+</div>

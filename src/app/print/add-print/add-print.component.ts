@@ -8,7 +8,7 @@ import { PreviewPrintComponent } from "../preview-print/preview-print.component"
 @Component({
   selector: "app-add-print",
   templateUrl: "./add-print.component.html",
-  styleUrls: ["./add-print.component.css"]
+  styleUrls: ["./add-print.component.css"],
 })
 export class AddPrintComponent implements OnInit {
   pdfSrc: string;
@@ -16,7 +16,9 @@ export class AddPrintComponent implements OnInit {
   page: number = 1;
   totalPages: number;
   printAddedSub: Subscription;
-  isLoaded = false;
+  progressSub: Subscription;
+  isLoaded: boolean = false;
+  progress: number = 0;
   constructor(
     private printService: PrintService,
     public priviewDialog: MatDialog
@@ -27,6 +29,12 @@ export class AddPrintComponent implements OnInit {
       .subscribe((prints: Print[]) => {
         this.prints = prints;
         console.log(this.prints);
+      });
+
+    this.progressSub = this.printService
+      .getprogressSubject()
+      .subscribe((progress) => {
+        this.progress = progress;
       });
   }
   changePrint(index: number) {
@@ -42,6 +50,8 @@ export class AddPrintComponent implements OnInit {
   }
   ngOnInit() {}
   handleUpload(filePath: Event) {
+    console.log("upload.....");
+
     console.dir(filePath.target);
     if (
       !filePath.target ||
@@ -58,9 +68,7 @@ export class AddPrintComponent implements OnInit {
     if (!(ext === "pdf")) {
       return;
     }
-    let name = content.name
-      .substring(0, content.name.lastIndexOf("."))
-      .toUpperCase();
+    let name = content.name;
     const size = content.size;
     const reader = new FileReader();
     reader.readAsDataURL(content);
@@ -81,13 +89,14 @@ export class AddPrintComponent implements OnInit {
       );
       console.dir(addedPrint);
       this.printService.addFile(addedPrint);
+      filePath.srcElement["value"] = "";
     };
   }
   previewFile(index: number) {
     this.priviewDialog.open(PreviewPrintComponent, {
       data: this.prints[index],
       width: "850px",
-      height: "850px"
+      height: "850px",
     });
   }
 }

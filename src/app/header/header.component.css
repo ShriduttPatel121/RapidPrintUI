@@ -3,3 +3,12 @@
   color: white;
   font-size: 40px;
 }
+.example-spacer {
+  flex: 1 1 auto;
+}
+.active {
+  color: rgb(197, 172, 135) !important;
+}
+button:focus {
+  outline: none;
+}

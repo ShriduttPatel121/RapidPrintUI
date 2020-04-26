@@ -1,0 +1,12 @@
+.field {
+  width: 95%;
+  margin-left: 1rem;
+}
+
+.example-container {
+  width: 45%;
+  height: 55%;
+  margin: auto;
+  margin-top: 10%;
+  display: block;
+}

@@ -12,3 +12,15 @@ pdf-viewer {
   margin: auto;
   margin-top: 6px;
 }
+
+.progress {
+  margin: auto;
+  width: 700px;
+  height: 1rem;
+  margin-top: 14%;
+}
+.progress-text {
+  margin-left: 45%;
+  margin-top: -33px;
+  position: absolute;
+}

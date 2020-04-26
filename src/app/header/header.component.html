@@ -1,1 +1,30 @@
-<mat-toolbar class="header">RapidPrint</mat-toolbar>
+<mat-toolbar class="header"
+  >RapidPrint<span class="example-spacer"></span>
+  <button
+    mat-button
+    style="color: white; font-size: 20px;"
+    routerLink="/login"
+    routerLinkActive="active"
+    *ngIf="!userIsAuthenticated"
+  >
+    LOGIN
+  </button>
+  <button
+    mat-button
+    style="color: white; font-size: 20px;"
+    routerLink="/signup"
+    routerLinkActive="active"
+    *ngIf="!userIsAuthenticated"
+  >
+    REGISTER
+  </button>
+  <button
+    mat-button
+    style="color: white;"
+    (click)="onLogout()"
+    routerLinkActive="mat-accent"
+    *ngIf="userIsAuthenticated"
+  >
+    Logout
+  </button></mat-toolbar
+>

@@ -1,0 +1,164 @@
+<div>
+  <mat-vertical-stepper [linear]="false" class="stepper" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel><h3>Fill out your name</h3></ng-template>
+        <mat-form-field class="field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="nameCtrl" required />
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel
+          ><h3>Fill out your birth date</h3></ng-template
+        >
+
+        <mat-form-field>
+          <mat-label>Date Of Birth</mat-label>
+          <input
+            matInput
+            [matDatepicker]="dp"
+            [max]="maxDate"
+            formControlName="dobCtrl"
+          />
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #dp></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="warn" matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 1rem;"
+            matStepperNext
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel><h3>Fill out your gender</h3></ng-template>
+
+        <mat-form-field>
+          <mat-select required [(value)]="gender">
+            <mat-option value="male">
+              Male
+            </mat-option>
+            <mat-option value="female">
+              Female
+            </mat-option>
+            <mat-option value="other">
+              Other
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="warn" matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 1rem;"
+            matStepperNext
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel
+          ><h3>Fill out your mobile number</h3></ng-template
+        >
+        <mat-form-field>
+          <mat-label>Mobile No.</mat-label>
+          <span matPrefix>+91 &nbsp;</span>
+          <input
+            matInput
+            formControlName="mobCtrl"
+            required
+            pattern="[789][0-9]{9}"
+          />
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="warn" matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 1rem;"
+            matStepperNext
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <form>
+        <ng-template matStepLabel
+          ><h3>Upload your profile picture</h3></ng-template
+        >
+        <button
+          style="margin-bottom: 2rem;"
+          mat-raised-button
+          color="primary"
+          (click)="filePicker.click()"
+        >
+          Upload Image
+        </button>
+        <div *ngIf="imageUrl.length > 0">
+          <img [src]="imageUrl" [alt]="imageUrl" class="img-preview" />
+        </div>
+        <input
+          type="file"
+          style="visibility: hidden;"
+          #filePicker
+          accept="image/*"
+          (change)="handleUpload($event)"
+        />
+        <div>
+          <button mat-raised-button color="warn" matStepperPrevious>
+            Back
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            style="margin-left: 1rem;"
+            matStepperNext
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel><h3>Done</h3></ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+        <button
+          mat-raised-button
+          color="primary"
+          style="margin-left: 1rem;"
+          (click)="submit()"
+        >
+          Submit
+        </button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>

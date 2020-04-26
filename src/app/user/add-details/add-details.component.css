@@ -1,0 +1,15 @@
+.stepper {
+  width: 63%;
+  height: 100%;
+  margin: auto;
+  margin-top: 4rem;
+  font-size: 22px;
+}
+.field {
+  width: 25%;
+}
+.img-preview {
+  height: 1 rem;
+  width: 250px;
+  margin: 1rem 0;
+}

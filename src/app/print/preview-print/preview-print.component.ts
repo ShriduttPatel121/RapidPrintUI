@@ -5,7 +5,7 @@ import { Print } from "../print.model";
 @Component({
   selector: "app-preview-print",
   templateUrl: "./preview-print.component.html",
-  styleUrls: ["./preview-print.component.css"]
+  styleUrls: ["./preview-print.component.css"],
 })
 export class PreviewPrintComponent implements OnInit {
   printContent: string;
@@ -14,7 +14,7 @@ export class PreviewPrintComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Print,
     private dialogRef: MatDialogRef<PreviewPrintComponent>
   ) {
-    this.page=data.startPage;
+    this.page = data.startPage;
     const reader = new FileReader();
     reader.readAsDataURL(data.content);
     reader.onload = () => {

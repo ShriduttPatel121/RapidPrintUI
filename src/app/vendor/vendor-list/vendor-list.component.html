@@ -1,3 +1,92 @@
-<p>
-  vendor-list works!
-</p>
+<div class="sortandfilters">
+  <mat-form-field appearance="outline" class="stateSelect">
+    <mat-label>Select state</mat-label>
+    <mat-select [(ngModel)]="state" (selectionChange)="onStateChange()">
+      <mat-option
+        *ngFor="let st of csc?.getStatesOfCountry('101')"
+        [value]="st"
+        >{{ st.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="citySelect">
+    <mat-label>Select city</mat-label>
+    <mat-select [(value)]="city" (selectionChange)="onCityChange()">
+      <mat-option
+        *ngFor="let ct of csc?.getCitiesOfState(state?.id)"
+        [value]="ct"
+        >{{ ct.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="search" appearance="outline">
+    <button
+      mat-button
+      mat-icon-button
+      matSuffix
+      *ngIf="vendorNameControl.value"
+      (click)="clearSearch()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <input
+      type="text"
+      matInput
+      [formControl]="vendorNameControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-label>Serch CenterName</mat-label>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <ng-container *ngIf="vendorNames.length > 0">
+        <mat-option
+          *ngFor="let option of filteredVendorNames | async"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-option></ng-container
+      >
+    </mat-autocomplete>
+  </mat-form-field>
+  <button
+    mat-icon-button
+    color="primary"
+    style="margin-left: 1rem;"
+    (click)="onSearchChange()"
+    *ngIf="vendorNameControl.value"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+
+  <mat-form-field appearance="outline" class="sortBy">
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="sortBy" (selectionChange)="onSortChange()">
+      <mat-option value="location">Your Location</mat-option>
+      <mat-option value="singleSidedPlain"
+        >Black & White (Single Sided)</mat-option
+      >
+      <mat-option value="doubleSidedPlain"
+        >Black & White (Double Sided)</mat-option
+      >
+      <mat-option value="singleSidedColor">Color (Single Sided)</mat-option>
+      <mat-option value="doubleSidedColor">Color (Double Sided)</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-radio-group
+    class="sortDir"
+    [(ngModel)]="sortDirection"
+    (change)="onSortChange()"
+    *ngIf="sortBy != 'location'"
+  >
+    <mat-radio-button value="1" class="sortOptions"
+      ><h6>Increasing (<mat-icon>arrow_downward</mat-icon>)</h6>
+    </mat-radio-button>
+    <mat-radio-button value="-1" class="sortOptions"
+      ><h6>Decreasing (<mat-icon>arrow_upward</mat-icon>)</h6>
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+<app-vendor-profile
+  *ngFor="let vendor of vendors"
+  [vendor]="vendor"
+></app-vendor-profile>

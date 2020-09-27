@@ -7,13 +7,17 @@ import { AddDetailsComponent } from "./user/add-details/add-details.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { ExistingUserGuard } from "./existingUser.guard";
+import { ProfileComponent } from "./profile/profile.component";
+import { ConfirmPaymentComponent } from "./payment/confirm-payment/confirm-payment.component";
+import { CheckoutComponent } from "./payment/checkout/checkout.component";
+import { OrdersComponent } from "./orders/orders.component";
 
 const routes: Routes = [
   {
     path: "vendor-list",
     component: VendorListComponent,
     pathMatch: "full",
-    canActivate: [AuthGuard],
+    canActivate: [],
   },
   {
     path: "signup",
@@ -39,8 +43,29 @@ const routes: Routes = [
     pathMatch: "full",
     canActivate: [ExistingUserGuard],
   },
+  {
+    path: "profile",
+    component: ProfileComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "confirm-payment",
+    component: ConfirmPaymentComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "checkout",
+    component: CheckoutComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard],
+  },
+  {
+    path: "orders",
+    component: OrdersComponent,
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

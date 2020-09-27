@@ -12,3 +12,16 @@ body {
   height: 40px !important;
   width: 40px !important;
 }
+
+.mat-menu-panel {
+  margin-top: 15px !important;
+}
+.mat-list-item {
+  height: auto !important;
+}
+.mat-button-focus-overlay .cdk-focused .cdk-mouse-focused {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}

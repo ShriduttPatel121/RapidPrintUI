@@ -51,10 +51,10 @@
             [formControl]="confirmPasswordFormControl"
             [type]="hide_confirm ? 'password' : 'text'"
           />
-          <mat-error *ngIf="passwordFormControl.hasError('required')">
+          <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
             Please confirm a Password
           </mat-error>
-          <mat-error *ngIf="passwordFormControl.errors?.minlength">
+          <mat-error *ngIf="confirmPasswordFormControl.errors?.minlength">
             Password should be 8 character long atleast
           </mat-error>
           <button

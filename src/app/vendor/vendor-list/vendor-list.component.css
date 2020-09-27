@@ -1,0 +1,26 @@
+.sortandfilters {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+.sortDir {
+  margin-left: 2rem;
+}
+.sortOptions {
+  margin-left: 2rem;
+}
+
+.sortBy {
+  margin-left: 5rem;
+}
+.citySelect {
+  margin-left: 5rem;
+}
+.stateSelect {
+  margin-left: 1rem;
+}
+.search {
+  margin-left: 5rem;
+  width: 300px;
+}
+

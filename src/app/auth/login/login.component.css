@@ -4,8 +4,8 @@
 }
 
 .example-container {
-  width: 45%;
-  height: 55%;
+  width: 35%;
+  /* height: 60%; */
   margin: auto;
   margin-top: 10%;
   display: block;

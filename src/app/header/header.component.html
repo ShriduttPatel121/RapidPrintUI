@@ -2,7 +2,7 @@
   >RapidPrint<span class="example-spacer"></span>
   <button
     mat-button
-    style="color: white; font-size: 20px;"
+    style="color: white; font-size: 20px"
     routerLink="/login"
     routerLinkActive="active"
     *ngIf="!userIsAuthenticated"
@@ -11,7 +11,7 @@
   </button>
   <button
     mat-button
-    style="color: white; font-size: 20px;"
+    style="color: white; font-size: 20px"
     routerLink="/signup"
     routerLinkActive="active"
     *ngIf="!userIsAuthenticated"
@@ -19,6 +19,41 @@
     REGISTER
   </button>
   <button
+    mat-icon-button
+    class="wallet"
+    title="My Wallet"
+    style="color: rgb(224, 236, 233)"
+    *ngIf="userIsAuthenticated"
+    (click)="openWallet()"
+  >
+    <mat-icon
+      [inline]="true"
+      [matBadge]="walletBalance | currency: 'INR'"
+      [matBadgeOverlap]="false"
+      matBadgePosition="before"
+      matBadgeSize="large"
+      >account_balance_wallet</mat-icon
+    >
+  </button>
+  <img
+    [src]="imageUrl"
+    alt="Avatar"
+    class="avatar"
+    *ngIf="userIsAuthenticated"
+  />
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    *ngIf="userIsAuthenticated"
+  >
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" style="margin-top: 12px">
+    <button mat-menu-item (click)="myProfile()">My Profile</button>
+    <button mat-menu-item (click)="onLogout()">Logout</button>
+    <button mat-menu-item>Reset Password</button>
+  </mat-menu>
+  <!-- <button
     mat-button
     style="color: white;"
     (click)="onLogout()"
@@ -26,5 +61,5 @@
     *ngIf="userIsAuthenticated"
   >
     Logout
-  </button></mat-toolbar
->
+  </button> -->
+</mat-toolbar>

@@ -6,9 +6,10 @@ import {
   NgForm,
   Validators,
 } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material";
+import { ErrorStateMatcher, MatDialog } from "@angular/material";
 import { AuthService, GoogleLoginProvider } from "angularx-social-login";
 import { Router } from "@angular/router";
+import { ForgotPasswordComponent } from "../forgot-password/forgot-password.component";
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
     control: FormControl | null,
@@ -42,7 +43,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    public previewDialog: MatDialog
   ) {}
 
   ngOnInit() {}
@@ -75,5 +77,11 @@ export class LoginComponent implements OnInit {
         console.log("Login unsuccessful..");
         console.log(error);
       });
+  }
+  forgotPassword() {
+    this.previewDialog.open(ForgotPasswordComponent, {
+      width: "550px",
+      height: "350px",
+    });
   }
 }

@@ -1,12 +1,15 @@
 import { AuthenticationService } from "./../auth/auth.service";
 import { User } from "./user.model";
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class UserService {
   private signupType: string;
   private user: User = new User();
+
   constructor(private authenticationService: AuthenticationService) {}
+
   setPassword(password: string) {
     this.user.password = password;
   }

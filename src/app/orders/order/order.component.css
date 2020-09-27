@@ -1,0 +1,9 @@
+.vendor-img {
+  width: 55px;
+  height: 55px;
+  /* float: left; */
+  border-radius: 25%;
+}
+.order {
+  max-width: 450px;
+}

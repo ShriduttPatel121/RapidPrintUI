@@ -6,7 +6,7 @@ export class User {
   gender: string;
   dob: string;
   mobile: string;
-  profile: File;
+  profile: File | string;
   //   constructor(
   //     name: string,
   //     gender: string,
@@ -24,5 +24,7 @@ export class User {
   //     this.mobile = mobile;
   //     this.idtoken = idtoken;
   //   }
-  constructor() {}
+  constructor() {
+   // this.profile = "https://www.w3schools.com/howto/img_avatar.png";
+  }
 }

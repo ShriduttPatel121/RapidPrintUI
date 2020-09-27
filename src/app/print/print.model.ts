@@ -1,4 +1,6 @@
 export class Print {
+  id: string;
+  file_id: string;
   name: string;
   numOfPrint: number;
   isColor: boolean;
@@ -7,7 +9,7 @@ export class Print {
   endPage: number;
   isSingleSided: boolean;
   pageType: string;
-  content: File;
+  content: File | string;
   size: number;
   constructor(
     name: string,
@@ -32,6 +34,6 @@ export class Print {
   }
   getOption() {
     const end = this.totalPages;
-    return { floor: 1, ceil:end};
+    return { floor: 1, ceil: end };
   }
 }

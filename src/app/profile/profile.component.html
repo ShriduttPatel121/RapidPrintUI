@@ -1,0 +1,125 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div class="card-avatar">
+      <img [src]="imageUrl" alt="Your picture" class="img-avatar" />
+    </div>
+  </mat-card-header>
+  <mat-card-content style="margin-top: 2rem;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="emailFormControl" readonly />
+      </mat-form-field>
+      <mat-form-field class="example-full-width field" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="nameFormControl" />
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label> Your password</mat-label>
+        <input
+          matInput
+          required
+          [formControl]="passwordFormControl"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+          Please enter a Password
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.errors?.minlength">
+          Password should be 8 character long atleast
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input
+          matInput
+          required
+          [formControl]="confirmPasswordFormControl"
+          [type]="hide_confirm ? 'password' : 'text'"
+        />
+        <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
+          Please confirm a Password
+        </mat-error>
+        <mat-error *ngIf="confirmPasswordFormControl.errors?.minlength">
+          Password should be 8 character long atleast
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide_confirm = !hide_confirm"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide_confirm"
+        >
+          <mat-icon>{{
+            hide_confirm ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field> -->
+      <mat-form-field
+        style="float: left; width: 55%;"
+        class="field"
+        appearance="outline"
+      >
+        <mat-label>Mobile No.</mat-label>
+        <input
+          matInput
+          pattern="[789][0-9]{9}"
+          [formControl]="mobileFormControl"
+        />
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-error *ngIf="mobileFormControl.invalid">
+          Please enter valid mobile number
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field
+        style="float: right; width: 35%;"
+        class="field"
+        appearance="outline"
+      >
+        <mat-label>Birth Date</mat-label>
+        <input matInput [value]="user.dob" readonly />
+      </mat-form-field>
+      <mat-form-field style="width: 35%;" class="field" appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput [value]="user?.gender" readonly />
+      </mat-form-field>
+
+      <button
+        style="float: right; margin-top: 1rem;"
+        mat-raised-button
+        color="primary"
+        (click)="filePicker.click()"
+      >
+        Change Profile Image
+      </button>
+      <!-- <div *ngIf="imageUrl.length > 0">
+          <img [src]="imageUrl" [alt]="imageUrl" class="img-preview" />
+        </div> -->
+      <input
+        type="file"
+        style="visibility: hidden;"
+        #filePicker
+        accept="image/*"
+        (change)="handleUpload($event)"
+      />
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="updateProfile()">
+      Update Profile
+    </button>
+    <button mat-raised-button color="warn" (click)="clearProfile()">
+      Reset Profile
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -4,10 +4,12 @@ import { Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpEvent, HttpEventType } from "@angular/common/http";
 import { LocalStoreService } from "./localStore.service";
+import { Order } from "./order.model";
 
 @Injectable()
 export class PrintService {
-  private prints: Print[] = [];
+  //private order.prints: Print[] = [];
+  private order: Order = new Order();
   private printEdited: Subject<Print[]> = new Subject();
   private progressSubject: Subject<number> = new Subject();
   constructor(
@@ -15,17 +17,38 @@ export class PrintService {
     private router: Router,
     private localStoreService: LocalStoreService
   ) {
-    console.log("prints---->");
-    this.prints = this.localStoreService.getPrints();
+    this.fetchFiles();
   }
 
-  addFile(file: Print) {
-    this.prints.push(file);
-    this.localStoreService.storePrint(file);
-    this.printEdited.next([...this.prints]);
+  createOrder() {
+    this.httpClient
+      .get("http://34.226.216.44/api/createorder")
+      .subscribe((response: { data: any; error: boolean }) => {
+        if (response.error) {
+          return;
+        }
+        console.log(response);
+        let orderId = response.data["order_id"];
+        this.localStoreService.storeOrderId(orderId);
+        this.router.navigate(["/vendor-list"]);
+      });
+  }
+  fetchFiles() {
+    this.httpClient
+      .get("http://34.226.216.44/api/filelist")
+      .subscribe((response: { error: boolean; data: any }) => {
+        if (response.error) {
+          return;
+        }
+        this.order.prints = [...response.data["files"]];
+        this.printEdited.next([...this.order.prints]);
+      });
+  }
+  addFile(files_data: Print) {
+    this.uploadFile(files_data);
   }
   getFiles(): Print[] {
-    return [...this.prints];
+    return [...this.order.prints];
   }
   getFileAddedSub() {
     return this.printEdited.asObservable();
@@ -33,96 +56,81 @@ export class PrintService {
   getprogressSubject() {
     return this.progressSubject.asObservable();
   }
-  updateFile(index: number, obj: Print) {
-    this.prints[index] = obj;
-    this.localStoreService.updatePrint(index, obj);
-    this.printEdited.next([...this.prints]);
+  updateFile(file_data: Print) {
+    this.uploadFileData(file_data);
   }
-  deleteFile(index: number) {
-    this.prints.splice(index, 1);
-    this.localStoreService.deletePrint(index);
-    this.printEdited.next([...this.prints]);
+  deleteFile(file_data: Print) {
+    this.httpClient
+      .get("http://34.226.216.44/api/delete-printdata/" + file_data.id)
+      .subscribe(
+        (response: { error: boolean; data: any }) => {
+          if (response.error) {
+            this.fetchFiles();
+            return;
+          }
+          console.log(response);
+          this.fetchFiles();
+        },
+        (err) => {
+          console.log(err);
+          this.fetchFiles();
+        }
+      );
   }
-  printFiles() {
+
+  private uploadFile(file_data: Print) {
     let FileData = new FormData();
-    for (let i = 0; i < this.prints.length; i++) {
-      FileData.append("files[]", this.prints[i].content, this.prints[i].name);
-    }
+    FileData.append("files[]", file_data.content, file_data.name);
 
     this.httpClient
-      .post("http://54.83.119.157/api/uploadfile", FileData, {
-        reportProgress: true,
-        observe: "events",
-      })
-      .subscribe((event: HttpEvent<any>) => {
-        switch (event.type) {
-          case HttpEventType.Sent:
-            console.log("Request has been made!");
-            break;
-          case HttpEventType.ResponseHeader:
-            console.log("Response header has been received!");
-            break;
-          case HttpEventType.UploadProgress:
-            let progress = Math.round((event.loaded / event.total) * 100);
-            this.progressSubject.next(progress);
-            console.log(`Uploaded! ${progress}%`);
-            break;
-          case HttpEventType.Response:
-            console.log("User successfully created!");
-            this.uploadFileData(event.body);
+      .post("http://34.226.216.44/api/uploadfile", FileData)
+      .subscribe((response: { error: boolean; data: any }) => {
+        if (response.error) {
+          return;
         }
+        console.log("response--->>");
+        console.log(response);
+        let fileId = response.data["files"][0]["id"];
+        file_data.file_id = fileId;
+        console.log(fileId);
+        this.uploadFileData(file_data);
       });
-    // http://54.83.119.157/api/uploadfile/
   }
-  private uploadFileData(file_response: { error: any; data: any }) {
-    let assets: {
-      file_id: number;
-      name: string;
-      numOfPrint: number;
-      pageType: string;
-      startPage: number;
-      endPage: number;
-      totalPages: number;
-      isColor: boolean;
-      isSingleSided: boolean;
-    }[] = [];
-    for (let i = 0; i < this.prints.length; i++) {
-      let name = this.prints[i].name.substring(
-        0,
-        this.prints[i].name.lastIndexOf(".")
-      );
-      let asset = {
-        file_id: -1,
-        name: name,
-        numOfPrint: this.prints[i].numOfPrint,
-        pageType: this.prints[i].pageType,
-        startPage: this.prints[i].startPage,
-        endPage: this.prints[i].endPage,
-        totalPages: this.prints[i].totalPages,
-        isColor: this.prints[i].isColor,
-        isSingleSided: this.prints[i].isSingleSided,
-      };
-      assets.push(asset);
+
+  private uploadFileData(file_data: Print) {
+    let assets: Print[] = [];
+
+    let name = file_data.name;
+    if (file_data.name.includes(".")) {
+      name = file_data.name.substring(0, file_data.name.lastIndexOf("."));
     }
-    if (!file_response["error"]) {
-      console.log(file_response);
-      for (let i = 0; i < this.prints.length; i++) {
-        console.log({
-          ...assets[i],
-          file_id: file_response["data"]["files"][i]["id"],
-        });
-        assets[i] = {
-          ...assets[i],
-          file_id: file_response["data"]["files"][i]["id"],
-        };
-      }
-      console.log(assets);
-      this.httpClient
-        .post("http://54.83.119.157/api/updatefiledata", { assets: assets })
-        .subscribe((response_data) => {
+    let asset: any = {
+      id: file_data.id,
+      file_id: file_data.file_id,
+      name: name,
+      numOfPrint: file_data.numOfPrint,
+      pageType: file_data.pageType,
+      startPage: file_data.startPage,
+      endPage: file_data.endPage,
+      totalPages: file_data.totalPages,
+      isColor: file_data.isColor,
+      isSingleSided: file_data.isSingleSided,
+    };
+    assets.push(asset);
+    console.log(assets);
+    this.httpClient
+      .post("http://34.226.216.44/api/updatefiledata", { assets: assets })
+      .subscribe(
+        (response_data) => {
           console.log(response_data);
-        });
-      this.router.navigate(["/vendor-list"]);
-    }
+          this.fetchFiles();
+        },
+        (error) => {
+          console.log(error);
+          this.fetchFiles();
+        }
+      );
   }
+
+  // this.router.navigate(["/vendor-list"]);
 }

@@ -12,3 +12,25 @@
 button:focus {
   outline: none;
 }
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.wallet {
+  font-size: 36px;
+  margin-right: 3rem;
+  cursor: pointer;
+}
+.mat-badge-content {
+  background: rgb(9, 13, 47);
+  color: whitesmoke;
+}
+.mat-badge-content {
+  width: 56px;
+  height: 38px;
+  line-height: 40px;
+  font-size: 12px;
+  margin-bottom: 1rem;
+}

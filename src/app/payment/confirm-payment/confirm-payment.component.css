@@ -1,0 +1,61 @@
+.summary {
+  margin: auto;
+  margin-top: 1rem;
+  width: 700px;
+}
+.user-detail {
+  font-family: Times New Roman;
+
+  letter-spacing: 0.15rem;
+}
+.order-content {
+  padding: 1rem;
+  font-family: Times New Roman;
+  padding-bottom: 0px;
+  letter-spacing: 0.15rem;
+}
+mat-card {
+  border-radius: 15px;
+}
+.vendor-img {
+  width: 175px;
+  height: 175px;
+  float: left;
+  border-radius: 25%;
+}
+.print-list {
+  margin-top: 0.5rem;
+}
+.price-list {
+  margin-top: 0.5rem;
+}
+button {
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  width:300px;
+  padding: 4px;
+  font-size: larger;
+  border-radius: 2%;
+  margin-bottom: 0.5rem; 
+}
+td,
+th {
+  padding: 0.7rem;
+  font-family: Times New Roman;
+}
+th {
+  text-align: center;
+}
+td {
+  text-align: center;
+}
+.user-detail {
+  margin-top: 0.5rem;
+}
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 1), 0 1px 1px 0 rgba(0, 0, 0, 1),
+    0 2px 1px 0 rgba(0, 0, 0, 1);
+}
+.applyWallet {
+  margin: 0 12px;
+}

@@ -8,7 +8,7 @@ pdf-viewer {
   width: 75%;
 }
 .expansionlist {
-  width: 75%;
+  width: 40%;
   margin: auto;
   margin-top: 6px;
 }
@@ -23,4 +23,79 @@ pdf-viewer {
   margin-left: 45%;
   margin-top: -33px;
   position: absolute;
+}
+
+/* button:focus {
+  outline: 3px solid rgba(236, 15, 15, 0.918);
+} */
+.clicked {
+  outline: 2px solid transparent !important;
+}
+.selected {
+  outline: 4px solid rgba(236, 15, 15, 0.918);
+}
+.icon-display {
+  transform: scale(2);
+}
+
+.dragAndDropcontainer {
+  width: 450px;
+  height: 200px;
+  padding: 2rem;
+  text-align: center;
+  border: dashed 1px #979797;
+  position: relative;
+  margin: auto;
+  margin-top: 0.4rem;
+}
+
+.fileover {
+  animation: shake 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }

@@ -1,0 +1,26 @@
+<div>
+  <h2>Add Money to RapidPrint Wallet</h2>
+  <h4>Your Current Balance is {{ currBalance | currency: "INR" }}</h4>
+  <div>
+    <mat-form-field appearance="fill" class="amountInput">
+      <input
+        matInput
+        (keypress)="validateInput($event)"
+        [(ngModel)]="amount"
+        placeholder="Amount"
+        style="width: 100%"
+      />
+      <p matPrefix>&#8377;&#x20;&#x20;</p>
+    </mat-form-field>
+  </div>
+  <div class="addMoneyBtn">
+    <button
+      style="width: 100%"
+      mat-raised-button
+      color="accent"
+      (click)="addAmount()"
+    >
+      Add Money
+    </button>
+  </div>
+</div>

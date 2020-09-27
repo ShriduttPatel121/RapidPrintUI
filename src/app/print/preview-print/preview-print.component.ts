@@ -16,10 +16,11 @@ export class PreviewPrintComponent implements OnInit {
   ) {
     this.page = data.startPage;
     const reader = new FileReader();
-    reader.readAsDataURL(data.content);
-    reader.onload = () => {
-      this.printContent = reader.result as string;
-    };
+    // reader.readAsDataURL(data.content);
+    // reader.onload = () => {
+    //   this.printContent = reader.result as string;
+    // };
+    this.printContent = data.content as string;
   }
   nextPage() {
     this.page++;

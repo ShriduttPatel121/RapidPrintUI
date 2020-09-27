@@ -1,0 +1,12 @@
+.amountInput {
+  /* width: 250px; */
+  margin-top: 3rem;
+  margin-left: 15rem;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.addMoneyBtn {
+  margin-left: 15rem;
+  width: 15rem;
+}

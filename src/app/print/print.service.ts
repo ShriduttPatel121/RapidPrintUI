@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpEvent, HttpEventType } from "@angular/common/http";
 import { LocalStoreService } from "./localStore.service";
 import { Order } from "./order.model";
-
+import {environment} from "../../environments/environment";
 @Injectable()
 export class PrintService {
   //private order.prints: Print[] = [];
@@ -19,10 +19,10 @@ export class PrintService {
   ) {
     this.fetchFiles();
   }
-
+//http://34.226.216.44
   createOrder() {
     this.httpClient
-      .get("http://34.226.216.44/api/createorder")
+      .get(environment.printApi+"/api/createorder")
       .subscribe((response: { data: any; error: boolean }) => {
         if (response.error) {
           return;
@@ -35,7 +35,7 @@ export class PrintService {
   }
   fetchFiles() {
     this.httpClient
-      .get("http://34.226.216.44/api/filelist")
+      .get(environment.printApi+"/api/filelist")
       .subscribe((response: { error: boolean; data: any }) => {
         if (response.error) {
           return;
@@ -61,7 +61,7 @@ export class PrintService {
   }
   deleteFile(file_data: Print) {
     this.httpClient
-      .get("http://34.226.216.44/api/delete-printdata/" + file_data.id)
+      .get(environment.printApi+"/api/delete-printdata/" + file_data.id)
       .subscribe(
         (response: { error: boolean; data: any }) => {
           if (response.error) {
@@ -83,7 +83,7 @@ export class PrintService {
     FileData.append("files[]", file_data.content, file_data.name);
 
     this.httpClient
-      .post("http://34.226.216.44/api/uploadfile", FileData)
+      .post(environment.printApi+"/api/uploadfile", FileData)
       .subscribe((response: { error: boolean; data: any }) => {
         if (response.error) {
           return;
@@ -119,7 +119,7 @@ export class PrintService {
     assets.push(asset);
     console.log(assets);
     this.httpClient
-      .post("http://34.226.216.44/api/updatefiledata", { assets: assets })
+      .post(environment.printApi+"/api/updatefiledata", { assets: assets })
       .subscribe(
         (response_data) => {
           console.log(response_data);

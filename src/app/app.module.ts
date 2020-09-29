@@ -33,6 +33,7 @@ import { MatStepperModule } from "@angular/material/stepper";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatIconModule } from "@angular/material/icon";
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatCardModule } from "@angular/material/card";
 import { VendorListComponent } from "./vendor/vendor-list/vendor-list.component";
 import { SignupComponent } from "./auth/signup/signup.component";
@@ -68,7 +69,8 @@ let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
     provider: new GoogleLoginProvider(
-      "969052518787-4utk5ecgrov99qnba8eita60j11o1s6v.apps.googleusercontent.com"
+      "739449918369-juivcj9bgg50naruqupe1rag45flgc1r.apps.googleusercontent.com"
+      //"969052518787-4utk5ecgrov99qnba8eita60j11o1s6v.apps.googleusercontent.com"
     ),
   },
 ]);
@@ -126,6 +128,7 @@ let config = new AuthServiceConfig([
     MatAutocompleteModule,
     MatBadgeModule,
     MatCheckboxModule,
+    MatPaginatorModule
   ],
   providers: [
     PrintService,

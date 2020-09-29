@@ -90,3 +90,14 @@
   *ngFor="let vendor of vendors"
   [vendor]="vendor"
 ></app-vendor-profile>
+<div style="display: none;">
+  <mat-paginator 
+              [pageSize]="pageSize"
+             
+              >
+</mat-paginator>
+</div>
+<div class="vendorPaginator" *ngIf="paginator.length!==0">
+  <button mat-button color="primary" [disabled]="!paginator.hasPreviousPage()" style="margin-right: 20rem;" (click)="previousPage()"><mat-icon>skip_previous</mat-icon> Previous Page</button>
+  <button mat-button color="primary" [disabled]="!paginator.hasNextPage()" (click)="nextPage()">Next Page <mat-icon>skip_next</mat-icon></button>
+</div>

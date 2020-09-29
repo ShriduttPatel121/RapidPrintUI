@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "rapidPrintUI"
+  "defaultProject": "rapidPrintUI",
+  "cli": {
+    "analytics": "eaa227d9-187b-44f9-8a82-37e757316c57"
+  }
 }

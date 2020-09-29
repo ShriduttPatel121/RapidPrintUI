@@ -111,6 +111,8 @@ THE SOFTWARE.
 
 @angular/material/menu
 
+@angular/material/paginator
+
 @angular/material/progress-bar
 
 @angular/material/radio
@@ -120,6 +122,8 @@ THE SOFTWARE.
 @angular/material/stepper
 
 @angular/material/toolbar
+
+@angular/material/tooltip
 
 @angular/platform-browser
 MIT

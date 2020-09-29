@@ -25,3 +25,10 @@ body {
 button:focus {
   outline: none;
 }
+.mat-paginator-container {
+  justify-content: center !important;
+}
+div.mat-paginator-range-label
+{
+  display: none;
+}

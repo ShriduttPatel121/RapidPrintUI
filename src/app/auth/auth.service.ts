@@ -4,7 +4,7 @@ import { User } from "../user/user.model";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { MatDialogRef } from "@angular/material";
-
+import {environment} from "../../environments/environment";
 @Injectable()
 export class AuthenticationService {
   authToken: string = "";
@@ -19,7 +19,7 @@ export class AuthenticationService {
     return this.userChangedSub.asObservable();
   }
   getUserDetails() {
-    return this.httpClient.get("http://34.226.216.44/api/auth/user");
+    return this.httpClient.get(environment.printApi+"/api/auth/user");
   }
   updateUserdatawithoutProfile(user: User) {
     let postData = new FormData();
@@ -27,7 +27,7 @@ export class AuthenticationService {
     // postData.append("profile", null);
     postData.append("name", user.name);
     this.httpClient
-      .post("http://34.226.216.44/api/updateuser", postData)
+      .post(environment.printApi+"/api/updateuser", postData)
       .subscribe(
         (val: { error: boolean; data: any }) => {
           console.log(val);
@@ -47,7 +47,7 @@ export class AuthenticationService {
     postData.append("profile", user.profile);
     postData.append("name", user.name);
     this.httpClient
-      .post("http://34.226.216.44/api/updateuser", postData)
+      .post(environment.printApi+"/api/updateuser", postData)
       .subscribe(
         (val: { error: boolean; data: any }) => {
           console.log(val);
@@ -63,7 +63,7 @@ export class AuthenticationService {
   }
   forgotPassword(email: string, mobile: string, dialogref: MatDialogRef<any>) {
     this.httpClient
-      .post("http://34.226.216.44/api/auth/forgotpassword", {
+      .post(environment.printApi+"/api/auth/forgotpassword", {
         email: email,
         mobile: mobile,
       })
@@ -99,7 +99,7 @@ export class AuthenticationService {
     postData.append("gender", user.gender);
     postData.append("profile", user.profile);
     this.httpClient
-      .post("http://34.226.216.44/api/auth/signup/google", postData)
+      .post(environment.printApi+"/api/auth/signup/google", postData)
       .subscribe(
         (response: { error: string; data: any }) => {
           console.log(response);
@@ -136,7 +136,7 @@ export class AuthenticationService {
     postData.append("gender", user.gender);
     postData.append("profile", user.profile);
     this.httpClient
-      .post("http://34.226.216.44/api/auth/signup", postData)
+      .post(environment.printApi+"/api/auth/signup", postData)
       .subscribe(
         (response: { error: string; data: any }) => {
           console.log(response);
@@ -165,7 +165,7 @@ export class AuthenticationService {
   }
   loginWithGmail(token: string) {
     this.httpClient
-      .post("http://34.226.216.44/api/auth/login/google", { idtoken: token })
+      .post(environment.printApi+"/api/auth/login/google", { idtoken: token })
       .subscribe(
         (response: { error: string; data: any }) => {
           if (response.error) {
@@ -200,7 +200,7 @@ export class AuthenticationService {
   loginWithEmail(email: string, password: string) {
     let userData = { email: email, password: password };
     this.httpClient
-      .post("http://34.226.216.44/api/auth/login", userData)
+      .post(environment.printApi+"/api/auth/login", userData)
       .subscribe(
         (response: { error: string; data: any }) => {
           if (response.error) {

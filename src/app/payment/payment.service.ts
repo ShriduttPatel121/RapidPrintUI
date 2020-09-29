@@ -5,6 +5,7 @@ import { Print } from "../print/print.model";
 import { HttpClient } from "@angular/common/http";
 import { LocalStoreService } from "../print/localStore.service";
 import { Router } from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class PaymentService {
@@ -20,7 +21,7 @@ export class PaymentService {
   ) {}
   //http://100.25.130.76:9090/get-offers
   getAllOffers() {
-    return this.httpClient.get("http://100.25.130.76:9090/get-offers");
+    return this.httpClient.get(environment.offerApi+"/get-offers");
   }
   getWalletApplied() {
     return this.walletApplied;
@@ -30,7 +31,7 @@ export class PaymentService {
     let orderId = this.localStoreService.getOrderId();
     this.httpClient
       .get(
-        "http://100.25.130.76:9090/confirm-payment/" +
+        environment.offerApi+"/confirm-payment/" +
           orderId +
           "?offerCode=" +
           this.appliedOfferCode +
@@ -59,7 +60,7 @@ export class PaymentService {
     let orderId = this.localStoreService.getOrderId();
     this.httpClient
       .get(
-        "http://34.226.216.44/api/checkout/" +
+        environment.printApi+"/api/checkout/" +
           orderId +
           "?offerCode=" +
           this.appliedOfferCode +

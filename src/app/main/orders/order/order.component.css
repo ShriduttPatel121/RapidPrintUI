@@ -1,0 +1,24 @@
+.vendor-img {
+  width: 55px;
+  height: 55px;
+  /* float: left; */
+  border-radius: 25%;
+}
+.order {
+  max-width: 400px;
+}
+
+.INCOMPLETE
+{
+ color:tomato;
+}
+
+.COMPLETED
+{
+color:rgb(37, 245, 10);
+}
+
+.PLACED 
+{
+ color: rgb(216, 17, 156);
+}

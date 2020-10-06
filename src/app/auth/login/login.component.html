@@ -5,17 +5,17 @@
   <mat-card-content
     ><div>
       <form [style.fontSize.px]="18">
-        <mat-form-field class="field" appearance="outline">
+        <mat-form-field class="field" appearance="outline" >
           <mat-label>Enter your email</mat-label>
           <input matInput [formControl]="emailFormControl" required />
-          <mat-error
+          <mat-error 
             *ngIf="
               emailFormControl.hasError('email') ||
               emailFormControl.hasError('required')
             "
           >
             Please enter a valid email address
-          </mat-error>
+          </mat-error>  
         </mat-form-field>
         <br />
         <mat-form-field class="field" appearance="outline">

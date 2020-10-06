@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { LocalStoreService } from "./print/localStore.service";
 import { AuthenticationService } from "./auth/auth.service";
+import { LocalStoreService } from './main/print/localStore.service';
 
 @Component({
   selector: "app-root",

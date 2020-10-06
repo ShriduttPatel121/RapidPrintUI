@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { User } from "../user/user.model";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { MatDialogRef } from "@angular/material";
 import {environment} from "../../environments/environment";
+import { User } from '../main/user/user.model';
 @Injectable()
 export class AuthenticationService {
   authToken: string = "";
@@ -240,7 +240,7 @@ export class AuthenticationService {
     this.expiresIn = null;
     localStorage.clear();
     clearTimeout(this.timer);
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/auth/login"]);
   }
   checkLogin() {
     let localData = this.getLocalInfo();

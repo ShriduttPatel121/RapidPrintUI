@@ -3,8 +3,8 @@
   <div class="add-print-component">
     <div class="add-file-container">
       <div class="add-file-form">
-        <a href="https://www.ilovepdf.com/split_pdf"
-        target="_blank" style="margin-left: auto;text-decoration: none;">Need to split your pdf?</a>
+        <!-- <a href="https://www.ilovepdf.com/split_pdf"
+        target="_blank" style="margin-left: auto;text-decoration: none;">Need to split your pdf?</a> -->
     <form>
       <div
       class="dragAndDropcontainer"
@@ -36,8 +36,9 @@
         Add file(s)
       </button>
       <button mat-raised-button  (click)="loadGoogleDrive()"  class="google-drive-button">
-        <img src="../../../../assets/images/g-drive.png"/>
-        G-Drive
+        <i class="googleDrive" >
+        Google Drive
+        </i>
       </button>
     </div>
       <input type="file" style="visibility: hidden;" #filePicker accept="application/pdf" multiple="multiple"

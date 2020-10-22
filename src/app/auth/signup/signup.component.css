@@ -1,12 +1,74 @@
-.field {
-  width: 97%;
-  margin-left: 1rem;
+.signup-component {
+  box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
 }
 
-.example-container {
-  width: 35%;
-  /* height: 68%; */
-  margin: auto;
-  margin-top: 5%;
+.signup-container.mat-card {
+  box-shadow: none;
+}
+.signup-container {
+  width: 20rem;
+  height: 30.5rem;
+}
+
+.field {
+  width: 90%;
+  margin: 0.5rem auto;
+}
+
+.Signup_Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.signup-form-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 5rem;
+}
+
+button.signup-button:disabled {
+  padding: 0 2.6rem;
+  background-color: rgba(67, 133, 245,0.3);
+  cursor: not-allowed;
+}
+button.signup-button:not(disabled) {
+  padding: 0 2.6rem;
+  background-color: rgba(67, 133, 245,1);
+  cursor: pointer;
+  color: white;
+}
+
+.signup-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signup-google-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ccccccc5;
+  margin: -16px;
+  height: 7.75rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.signup-with-google-button {
   display: block;
+  height: 2.8rem;
+}
+
+.signin-question {
+  display: flex;
+  justify-content: center;
+}
+
+.signin-question a {
+  text-decoration: none;
+  color: rgb(67, 133, 245);
 }

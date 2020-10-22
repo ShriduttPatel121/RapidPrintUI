@@ -1,25 +1,22 @@
-<mat-card class="example-container">
-  <mat-card-header style="display: block;">
-    <mat-card-title><h1 style="text-align: center;">LOGIN</h1></mat-card-title>
-  </mat-card-header>
+<div class="login-component">
+<mat-card class="login-container">
   <mat-card-content
     ><div>
-      <form [style.fontSize.px]="18">
-        <mat-form-field class="field" appearance="outline" >
-          <mat-label>Enter your email</mat-label>
+      <form [style.fontSize.px]="18" id="Login" class="Login_Form">
+        <mat-form-field class="field">
+          <mat-label class="field-label">Enter your email</mat-label>
           <input matInput [formControl]="emailFormControl" required />
-          <mat-error 
+          <mat-error
             *ngIf="
               emailFormControl.hasError('email') ||
               emailFormControl.hasError('required')
             "
           >
             Please enter a valid email address
-          </mat-error>  
+          </mat-error>
         </mat-form-field>
-        <br />
-        <mat-form-field class="field" appearance="outline">
-          <mat-label>Enter your password</mat-label>
+        <mat-form-field class="field" >
+          <mat-label class="field-label">Enter your password</mat-label>
           <input
             matInput
             required
@@ -39,43 +36,48 @@
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide"
           >
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            <mat-icon style="font-size: 1.5rem;">{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
         </mat-form-field>
-        <br />
       </form></div
   ></mat-card-content>
   <mat-card-actions>
-    <button
+    <div class="login-form-actions">
+      <div class="login-actions">
+        <button
+      class="login-button"
       mat-raised-button
-      style="width: 95%; margin-left: 1rem; height: 45px;"
-      color="primary"
       [disabled]="!isValid()"
       (click)="logInWithEmail()"
-    >
-      <mat-icon>email</mat-icon>
-      Login with Email
+      >
+      Login
     </button>
+    <a
+        (click)="forgotPassword()"
+        style="text-decoration: none; color: blue; cursor: pointer;"
+        >Forgot password?</a
+      >
+      </div>
+  </div>
+  </mat-card-actions>
+  <div class="signin-google-actions">
     <button
       mat-raised-button
-      style="width: 95%; margin-left: 1rem; margin-top: 1rem; height: 45px;"
-      color="primary"
+      class="signin-with-google-button"
       (click)="logInWithGoogle()"
     >
       <img
         width="20px"
-        style="margin-bottom: 3px; margin-right: 5px;"
+        style="margin-bottom: 3px; margin-right: 5px; background-color: white; width: 20px;"
         alt="Google sign-in"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+        src="https://b.zmtcdn.com/images/new_google_icon.png"
       />
       Continue with Google
     </button>
-    <div style="text-align: center; margin-top: 1rem;">
-      <a
-        (click)="forgotPassword()"
-        style="text-decoration: none; color: blue; cursor: pointer;"
-        >Forgot password ?</a
-      >
+    <div class="signup-question">
+      <p>Don't have an account? <a href="#">sign up here</a></p>
+  </div>
     </div>
-  </mat-card-actions>
 </mat-card>
+</div>
+<!-- https://www.pinclipart.com/picdir/big/386-3864437_school-google-pearl-docs-middle-plus-suite-ios.png -->

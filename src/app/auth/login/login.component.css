@@ -1,12 +1,81 @@
-.field {
-  width: 95%;
-  margin-left: 1rem;
-}
+/*
 
 .example-container {
   width: 35%;
-  /* height: 60%; */
+
   margin: auto;
   margin-top: 10%;
   display: block;
+} */
+.login-component {
+  box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+.login-container.mat-card {
+  box-shadow: none;
+}
+
+.login-container {
+  width: 20rem;
+  height: 25rem;
+}
+
+.Login_Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.field {
+  width: 90%;
+  margin: 0.5rem auto;
+}
+
+.login-form-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 5rem;
+}
+button.login-button:disabled {
+  padding: 0 2.6rem;
+  background-color: rgba(67, 133, 245,0.3);
+  cursor: not-allowed;
+}
+button.login-button:not(disabled) {
+  padding: 0 2.6rem;
+  background-color: rgba(67, 133, 245,1);
+  cursor: pointer;
+  color: white;
+}
+/*  */
+.login-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signin-google-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccccccc5;
+  margin: -16px;
+  height: 7.85rem;
+  font-size: 0.8rem;
+}
+
+.signin-with-google-button {
+  display: block;
+  height: 2.8rem;
+}
+
+.signup-question {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-question a {
+  text-decoration: none;
+  color: rgb(67, 133, 245);
 }

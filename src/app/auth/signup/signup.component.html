@@ -1,11 +1,9 @@
-<mat-card class="example-container">
-  <mat-card-header style="display: block;">
-    <mat-card-title><h1 style="text-align: center;">SIGNUP</h1></mat-card-title>
-  </mat-card-header>
+<div class="signup-component">
+<mat-card class="signup-container">
   <mat-card-content>
     <div>
-      <form [style.fontSize.px]="18">
-        <mat-form-field class="field" appearance="outline">
+      <form [style.fontSize.px]="18" class="Signup_Form">
+        <mat-form-field class="field" >
           <mat-label>Enter your email</mat-label>
           <input matInput [formControl]="emailFormControl" required />
           <mat-error
@@ -17,8 +15,7 @@
             Please enter a valid email address
           </mat-error>
         </mat-form-field>
-        <br />
-        <mat-form-field class="field" appearance="outline">
+        <mat-form-field class="field">
           <mat-label>Enter your password</mat-label>
           <input
             matInput
@@ -42,8 +39,7 @@
             <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
         </mat-form-field>
-        <br />
-        <mat-form-field class="field" appearance="outline">
+        <mat-form-field class="field">
           <mat-label>Confirm password</mat-label>
           <input
             matInput
@@ -69,34 +65,40 @@
             }}</mat-icon>
           </button>
         </mat-form-field>
-        <br />
       </form>
     </div>
   </mat-card-content>
   <mat-card-actions>
+  <div class="signup-form-actions">
+      <div class="signup-actions">
+        <button
+          mat-raised-button
+          class="signup-button"
+          [disabled]="!isValid()"
+          (click)="signInWithEmail()"
+        >
+          Sign up
+        </button>
+    </div>
+  </div>
+  </mat-card-actions>
+  <div class="signup-google-actions">
     <button
       mat-raised-button
-      style="width: 95%; margin-left: 1rem; height: 45px;"
-      color="primary"
-      [disabled]="!isValid()"
-      (click)="signInWithEmail()"
-    >
-      <mat-icon>email</mat-icon>
-      SignUp with Email
-    </button>
-    <button
-      mat-raised-button
-      style="width: 95%; height: 45px; margin-left: 1rem; margin-top: 1rem;"
-      color="primary"
+      class="signup-with-google-button"
       (click)="signInWithGoogle()"
     >
       <img
         width="20px"
         style="margin-bottom: 3px; margin-right: 5px;"
-        alt="Google sign-in"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+        alt="Google sign-up"
+        src="https://b.zmtcdn.com/images/new_google_icon.png"
       />
-      SignUp with Google
+      Sign up with Google
     </button>
-  </mat-card-actions>
+    <div class="signin-question">
+      <p>Already have an account? <a href="#">login here</a></p>
+  </div>
+  </div>
 </mat-card>
+</div>

@@ -32,3 +32,21 @@ div.mat-paginator-range-label
 {
   display: none;
 }
+
+.Login_Form .mat-form-field.mat-focused .mat-form-field-label{
+  color : #4385f5;
+}
+.Signup_Form .mat-form-field.mat-focused .mat-form-field-label{
+  color : #4385f5;
+}
+
+#Login.Login_Form .mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: #4385f5 ;
+}
+.Signup_Form .mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: #4385f5 ;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color : #4385f5;
+}

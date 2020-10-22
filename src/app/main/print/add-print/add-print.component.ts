@@ -10,6 +10,7 @@ import { Order } from "../order.model";
 import { GoogleDriveSelectorService } from "../GoogleDriveSelectorService";
 import { AuthenticationService } from 'src/app/auth/auth.service';
 import { User } from '../../user/user.model';
+import { EditPrintComponent } from '../edit-print/edit-print.component';
 declare var gapi: any;
 declare var google: any;
 @Component({
@@ -30,6 +31,7 @@ export class AddPrintComponent implements OnInit {
   constructor(
     private printService: PrintService,
     public previewDialog: MatDialog,
+    public editDialog: MatDialog,
     private authenticationService: AuthenticationService,
     private googleDriveSelectorService: GoogleDriveSelectorService
   ) {
@@ -157,5 +159,12 @@ export class AddPrintComponent implements OnInit {
   }
   loadGoogleDrive() {
     this.googleDriveSelectorService.loadGoogleDrive();
+  }
+  editPrint()
+  {
+    this.editDialog.open(EditPrintComponent,{
+      width: "45rem",
+      height: "35rem",
+    })
   }
 }

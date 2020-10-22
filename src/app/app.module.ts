@@ -43,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
+import { EditPrintComponent } from './main/print/edit-print/edit-print.component';
 
 
 let config = new AuthServiceConfig([
@@ -78,7 +79,8 @@ let config = new AuthServiceConfig([
     DragAndDropDirective,
     SingleOrderComponent,
     MainComponent,
-    AuthComponent
+    AuthComponent,
+    EditPrintComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +114,7 @@ let config = new AuthServiceConfig([
     MatBadgeModule,
     MatCheckboxModule,
     MatPaginatorModule,
-    
+
   ],
   providers: [
     PrintService,
@@ -141,6 +143,7 @@ let config = new AuthServiceConfig([
     ForgotPasswordComponent,
     ApplyOfferComponent,
     WalletComponent,
+    EditPrintComponent
   ],
 })
 export class AppModule {}

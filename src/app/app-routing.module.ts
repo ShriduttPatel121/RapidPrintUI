@@ -19,7 +19,8 @@ import { VendorListComponent } from './main/vendor/vendor-list/vendor-list.compo
 const routes: Routes = [
   {
     path:"auth",
-    redirectTo:"/auth/login"
+    redirectTo:"/auth/login",
+    pathMatch: "full"
   },
   {
     path:"auth",
@@ -53,7 +54,7 @@ const routes: Routes = [
         path: "",
         component: AddPrintComponent,
         pathMatch: "full",
-        canActivate: [AuthGuard],
+        canActivate: [],
       },
       {
         path: "add-details",

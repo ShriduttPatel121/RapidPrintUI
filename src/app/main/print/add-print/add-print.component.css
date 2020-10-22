@@ -1,101 +1,106 @@
-pdf-viewer {
-  display: block;
-  height: 100%;
+.add-file-region {
+  display: flex;
+  padding: 0 4rem;
+}
+.add-print-component {
+  display: flex;
+  padding: 1rem;
+  margin: 1rem;
   width: 100%;
-}
-.pdfContainer {
-  height: 75%;
-  width: 75%;
-}
-.expansionlist {
-  width: 40%;
-  margin: auto;
-  margin-top: 6px;
+  box-shadow: 0 0 1.25rem rgba(0,0,0,.32);
 }
 
-.progress {
-  margin: auto;
-  width: 700px;
-  height: 1rem;
-  margin-top: 14%;
-}
-.progress-text {
-  margin-left: 45%;
-  margin-top: -33px;
-  position: absolute;
+.add-file-container {
+  width: 100%;
+  height: 15rem;
+  padding: 0.5rem;
+  border : 1px dashed #ccc;
 }
 
-/* button:focus {
-  outline: 3px solid rgba(236, 15, 15, 0.918);
-} */
-.clicked {
-  outline: 2px solid transparent !important;
-}
-.selected {
-  outline: 4px solid rgba(236, 15, 15, 0.918);
-}
-.icon-display {
-  transform: scale(2);
+.add-file-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.dragAndDropcontainer {
-  width: 450px;
-  height: 200px;
-  padding: 2rem;
-  text-align: center;
-  border: dashed 1px #979797;
-  position: relative;
-  margin: auto;
-  margin-top: 0.4rem;
+.add-file-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 13.5rem;
 }
 
-.fileover {
-  animation: shake 1s;
-  animation-iteration-count: infinite;
+.add-file-btn {
+  background-color: rgb(246, 68, 77);
+  color: white;
+  padding: 1.25rem 3.78125rem;
+  margin-right: 1rem;
 }
 
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
+.google-drive-button {
+  padding: 1.25rem 3.78125rem;
+  background-color: #ecececee;
 
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
 }
+/*print itme rows start */
+.print-list {
+  overflow-y: scroll;
+  height: 352px;
+}
+
+.print-itmes {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.print-item {
+  display: flex;
+  justify-content: flex-start;
+
+}
+.print-item:hover {
+  box-shadow: 2px -2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.file-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  width: 25rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.file-card strong{
+  margin-left: 0.4rem;
+}
+
+.btn-container {
+  display: flex;
+}
+.btn {
+  outline: none;
+  border: none;
+  width: 3.5rem;
+  margin-left: 0.2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 2px 0px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.btn:hover {
+  box-shadow: 1px -2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+.edit-btn {
+  background-color: #0fc0c5;
+  margin-left: 0.4rem;
+}
+
+.delete-btn {
+  background-color: #f23030;
+}
+
+.preview-btn {
+  background-color: #4385f5;
+}
+
+/*print itme rows end */

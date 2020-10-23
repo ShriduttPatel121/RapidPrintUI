@@ -13,22 +13,72 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50vw;
+  width: 60vw;
   height: 100vh;
 }
 .LeftPan {
   color: white;
   display: flex;
   height: 100vh;
-  width: 50vw;
-  /* background-image: linear-gradient( to top left,#031936,  #1877F2); */
-  background-color:#F21876;
-  justify-content: center;
+  width: 40vw;
+  /* background-color:#F21876; */ /* PINKISH */
+  background-color: #f6444d;
+  justify-content: flex-start;
+  padding: 4rem 2rem;
+  flex-direction: column;
 }
 
-.line-1{
+.icons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding: 0 25%;
+}
+
+.icon {
+  display: flex;
+  margin: 1.4rem 0;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid;
+  border-radius: 0.75rem;
+  padding: 1rem 0.65rem 1rem 0;
+  /* border: 2px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 0.25rem; */
+}
+
+.icon img {
+  width: 6rem;
+  height: 99px;
+  /* border: 2px solid white;
+  border-radius: 0.25rem; */
+}
+
+.svg-config::before {
+  width: 4.125rem;
+  height: 4.125rem;
+  display: inline-block;
+}
+
+.offer-image::before {
+  content: "";
+  background: url(../../assets/images/discount.svg) no-repeat;
   position: relative;
-  top: 20%;
+  top: 1.5px;
+}
+.queue-image::before{
+  content: "";
+  background: url(../../assets/images/queue.svg) no-repeat;
+}
+
+.clock-image::before {
+  content: "";
+  background: url(../../assets/images/clock.svg);
+}
+.line-1{
+  /* position: relative;
+  top: 20%; */
   height: 2.7rem;
   margin: 0 auto;
   border-right: 4px solid rgba(255,255,255,.75);

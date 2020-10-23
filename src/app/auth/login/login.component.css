@@ -16,7 +16,7 @@
 }
 
 .login-container {
-  width: 20rem;
+  width: 25rem;
   height: 25rem;
 }
 
@@ -33,7 +33,7 @@
 .login-form-actions {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 5rem;
 }
 button.login-button:disabled {

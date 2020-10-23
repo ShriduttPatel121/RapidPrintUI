@@ -107,12 +107,12 @@ to{border-right-color: transparent;}
 
   .mobile-view {
     display: block;
-    color: #f6444d;
+    color: rgb(246, 68, 77);
     position: fixed;
     top: 5%;
   }
   @keyframes blinkTextCursor{
-    from{border-right-color: rgba(242, 24, 118, 0.95);}
+    from{border-right-color: rgba(246, 68, 77, 0.95);}
     to{border-right-color: transparent;}
     }
 }

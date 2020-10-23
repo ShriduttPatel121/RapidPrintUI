@@ -43,16 +43,6 @@
   border: 2px solid;
   border-radius: 0.75rem;
   padding: 1rem 0.65rem 1rem 0;
-  /* border: 2px solid whitesmoke;
-  color: whitesmoke;
-  border-radius: 0.25rem; */
-}
-
-.icon img {
-  width: 6rem;
-  height: 99px;
-  /* border: 2px solid white;
-  border-radius: 0.25rem; */
 }
 
 .svg-config::before {

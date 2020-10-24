@@ -64,7 +64,30 @@
 
 .clock-image::before {
   content: "";
-  background: url(../../assets/images/clock.svg);
+  background: url(../../assets/images/clock.svg) no-repeat;
+}
+.offer-section {
+  opacity: 0;
+  animation: icon-animation 1000ms ease-in-out;
+  animation-delay: 2000ms;
+  animation-fill-mode: forwards;
+}
+.queue-section {
+  opacity: 0;
+  animation: icon-animation 1000ms ease-in-out;
+  animation-delay: 3000ms;
+  animation-fill-mode: forwards;
+}
+
+.clock-section {
+  opacity: 0;
+  animation: icon-animation 1000ms ease-in-out;
+  animation-delay: 4000ms;
+  animation-fill-mode: forwards;
+}
+@keyframes icon-animation {
+  from {transform : translateX(-30vw); opacity : 0;}
+  to {transform : translateX(0); opacity : 1;}
 }
 .line-1{
   /* position: relative;
@@ -72,7 +95,7 @@
   height: 2.7rem;
   margin: 0 auto;
   border-right: 4px solid rgba(255,255,255,.75);
-  font-size: 150%;
+  font-size: 146%;
   text-align: center;
   overflow: hidden;
   z-index: 10;

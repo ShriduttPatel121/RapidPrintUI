@@ -33,8 +33,9 @@
 .login-form-actions {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 5rem;
+  padding: 0 1.6rem;
 }
 button.login-button:disabled {
   padding: 0 2.6rem;
@@ -50,7 +51,7 @@ button.login-button:not(disabled) {
 /*  */
 .login-actions {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 

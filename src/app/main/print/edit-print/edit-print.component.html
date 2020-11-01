@@ -1,3 +1,149 @@
-<p>
-  edit-print works!
-</p>
+<div>
+  <h4><b>File Name-:</b></h4>
+      <mat-divider style="width: 100%"></mat-divider>
+          <div class="edit-popup-items">
+            <div class="edit-popup-item heading">
+              <div>
+                <h3>COLOUR</h3>
+              </div>
+            </div>
+            <div class="edit-popup-item">
+              <div class="image-container">
+                <button class="select-btn selected-btn" mat-button>
+                  <img class="icon-image" src="../../../assets/images/color_print.png"/>
+                </button>
+                <div class="btn-title-container">
+                  <h4>Colour Print</h4>
+                </div>
+              </div>
+              <div>
+                <button class="select-btn" mat-button>
+                  <img class="icon-image" src="../../../assets/images/b&w_print.png"/>
+                </button>
+                <div class="btn-title-container">
+                  <h4>Black & White</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        <mat-divider></mat-divider>
+          <div class="edit-popup-items">
+            <div class="edit-popup-item heading">
+              <div>
+                <h3>SIDES</h3>
+              </div>
+            </div>
+            <div class="edit-popup-item">
+              <div>
+                <button class="select-btn" mat-button>
+                  <img class="icon-image" src="../../../assets/images/single_side.PNG"/>
+                </button>
+                <div class="btn-title-container">
+                  <h4>Single Side</h4>
+                </div>
+              </div>
+              <div>
+                <button class="select-btn" mat-button>
+                  <img class="icon-image" src="../../../assets/images/double_side.PNG"/>
+                </button>
+                <div class="btn-title-container">
+                  <h4>Double Side</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        <mat-divider></mat-divider>
+          <div style="display: flex;">
+            <div class="half-size-popup-item">
+            <div class="edit-popup-item heading">
+              <div>
+                <h3>PAGES</h3>
+              </div>
+            </div>
+            <div class="edit-popup-item">
+              <div class="page-input-container">
+              <mat-form-field class="page-input" appearance="outline" cellspacing="0">
+                <mat-label>Start</mat-label>
+                <input matInput type="number" >
+              </mat-form-field>
+            </div>
+            <div style="display: flex;align-items: baseline;">
+              <p>:</p>
+            </div>
+              <div class="page-input-container">
+              <mat-form-field class="page-input" appearance="outline" cellspacing="0">
+                <mat-label>End</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </div>
+          </div>
+          </div>
+          <div style="height: 7rem;border: 0.5px solid #cccccc;position: relative;left: 1.1%; top: 22px"></div>
+          <div class="half-size-popup-item">
+            <div class="edit-popup-items">
+              <div class="edit-popup-item heading">
+                <div>
+                  <h3>COPIES</h3>
+                </div>
+              </div>
+              <div class="edit-popup-item">
+                <div style="margin-top: 0.5rem;display: flex;">
+                    <button class="select-btn" mat-icon-button class="clicked">
+                      <mat-icon>keyboard_arrow_up</mat-icon>
+                    </button>
+                    <div class="page-input-container" style="width: 6.25rem;">
+                      <mat-form-field class="page-input" cellspacing="0" >
+                        <input matInput type="number" >
+                      </mat-form-field>
+                    </div>
+                  <button class="select-btn" mat-icon-button class="clicked">
+                    <!-- <mat-icon style="color: red; transform: scale(2)" (click)="incrementCopies(i)">keyboard_arrow_up
+                    </mat-icon> -->
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <mat-divider></mat-divider>
+        <div style="display: flex;">
+          <div class="half-size-popup-item">
+            <div class="edit-popup-item heading">
+              <div>
+                <h3>SIZE</h3>
+              </div>
+            </div>
+            <div class="edit-popup-item">
+                <mat-form-field>
+                  <mat-select>
+                    <mat-option value="A3">
+                      A3
+                    </mat-option>
+                    <mat-option value="A4">
+                       A4
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+          </div>
+          <div style="height: 6.5rem;border: 0.5px solid #cccccc;position: relative;left: 7.1%; top: 22px"></div>
+          <div class="half-size-popup-item spacial-instruction">
+            <div style="margin-left: 3rem;">
+              <mat-form-field >
+                <textarea matInput placeholder="Spacial instuctions"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      <div class="edit-popup-actions">
+        <mat-action-row>
+          <button mat-raised-button style="background-color: #4385f5; color: white;">
+            Save changes
+          </button>
+          <button mat-raised-button style="margin-left: 15px;background-color: #f23030; color: white;">
+            cancle
+          </button>
+        </mat-action-row>
+    </div>
+</div>

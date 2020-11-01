@@ -163,7 +163,7 @@ export class AddPrintComponent implements OnInit {
   editPrint()
   {
     this.editDialog.open(EditPrintComponent,{
-      width: "45rem",
+      width: "37rem",
       height: "35rem",
     })
   }

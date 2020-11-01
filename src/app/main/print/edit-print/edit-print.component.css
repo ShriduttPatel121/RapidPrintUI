@@ -1,0 +1,70 @@
+.edit-popup-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-popup-item {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.heading {
+  justify-content: center;
+}
+
+.btn-title-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+/* apply this class for selection  */
+.select-btn {
+  border: 2px solid transparent;
+}
+/* if button gets selected then apply this class too */
+.selected-btn {
+  border-color: red;
+}
+.icon-image {
+  margin: auto;
+  width: 4.25rem;
+  height: 4.25rem;
+}
+
+.half-size-popup-item {
+  width: 19rem;
+}
+
+.page-input-container {
+  width: 8.25rem;
+  display: flex;
+  justify-content: center;
+}
+.page-input {
+  width: 60%;
+}
+
+.spacial-instruction {
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.edit-popup-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+

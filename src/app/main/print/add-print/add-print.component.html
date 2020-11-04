@@ -1,10 +1,8 @@
-<div *ngIf="progress == 0">
+<div *ngIf="progress == 0" style="background-color: #dcdada85; height: calc(100vh - 64px);">
   <div class="add-file-region">
   <div class="add-print-component">
     <div class="add-file-container">
       <div class="add-file-form">
-        <!-- <a href="https://www.ilovepdf.com/split_pdf"
-        target="_blank" style="margin-left: auto;text-decoration: none;">Need to split your pdf?</a> -->
     <form>
       <div
       class="dragAndDropcontainer"
@@ -13,13 +11,20 @@
     >
     </div>
       <div class="add-file-form-actions">
-      <button mat-raised-button type="button" (click)="filePicker.click()" class="add-file-btn">
-        Add file(s)
-      </button>
-      <button mat-raised-button  (click)="loadGoogleDrive()"  class="google-drive-button">
-        <i class="googleDrive" ></i>
-        Google Drive
-      </button>
+        <div class="add-files-btn-container">
+        <button mat-raised-button type="button" (click)="filePicker.click()" class="add-file-btn">
+          Add file(s)
+        </button>
+        <button mat-raised-button  (click)="loadGoogleDrive()"  class="google-drive-button">
+          <i class="googleDrive" ></i>
+          Google Drive
+        </button>
+    </div>
+      <div class="add-files-suggestions-container">
+        <em style="opacity: 0.55;margin-bottom: 0.4rem;">You can Drag and Drop your file(s) here.</em>
+        <a href="https://www.ilovepdf.com/split_pdf"
+        target="_blank" style="text-decoration: none;">Need to split your pdf?</a>
+      </div>
     </div>
       <input type="file" style="visibility: hidden;" #filePicker accept="application/pdf" multiple="multiple"
         (change)="handleUpload($event.target.files, $event)" />
@@ -340,5 +345,10 @@
       </button>
     </div>
   </div>
+</div>
+<div class="take-print-area">
+  <button mat-raised-button type="button" class="add-file-btn take-print-btn">
+    Take Print
+  </button>
 </div>
 </div>

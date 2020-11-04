@@ -14,7 +14,7 @@
   width: 100%;
   height: 15rem;
   padding: 0.5rem;
-  border : 1px dashed #ccc;
+  border : 1px dashed black;
 }
 
 .add-file-form {
@@ -26,7 +26,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 13.5rem;
+  height: 15.5rem;
+  flex-direction: column;
+}
+
+.add-files-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-files-suggestions-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem 0;
 }
 
 .add-file-btn {
@@ -55,7 +69,7 @@
 /*print itme rows start */
 .print-list {
   overflow-y: scroll;
-  height: 352px;
+  height: 278px;
   margin: 0 17%;
 }
 
@@ -120,4 +134,15 @@
   background-color: #4385f5;
 }
 
+.take-print-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.4rem;
+}
+
+.take-print-btn {
+  margin-right: 0;
+  padding: 0.5rem 2rem;
+}
 /*print itme rows end */

@@ -60,7 +60,7 @@ button.login-button:not(disabled) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ccccccc5;
+  background-color: #c5c5c5c4;
   margin: -16px;
   height: 7.85rem;
   font-size: 0.8rem;

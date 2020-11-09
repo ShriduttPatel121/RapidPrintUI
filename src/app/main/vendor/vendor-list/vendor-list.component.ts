@@ -25,7 +25,7 @@ export class VendorListComponent implements OnInit {
   vendorNames: string[];
   filteredVendorNames: Observable<string[]>;
   vendorNameControl = new FormControl();
-  pageSize:number=2;
+  pageSize:number=8;
   constructor(private vendorService: VendorService) {
     navigator.geolocation.getCurrentPosition((coords) => {
       this.lat = coords.coords.latitude;
@@ -43,15 +43,15 @@ export class VendorListComponent implements OnInit {
     this.filteredVendorNames = this.vendorNameControl.valueChanges.pipe(
       map((value) => this._filter(value))
     );
-    
+
   }
   ngAfterViewInit()
   {
     this.paginator.page.subscribe(val=>{
-    
+
       this.setOrderedVendorList();
-    }); 
-  
+    });
+
   }
   nextPage()
   {
@@ -173,5 +173,5 @@ export class VendorListComponent implements OnInit {
     }
     return [];
   }
- 
+
 }

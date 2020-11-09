@@ -1,30 +1,107 @@
-.sortandfilters {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+.vendor-list-component {
+  display: flex;
+  height: calc(100vh - 64px);
+  background-color: #dcdada85;
 }
-.sortDir {
-  margin-left: 2rem;
-}
-.sortOptions {
-  margin-left: 2rem;
+.vendor-list-filter-section {
+  display: flex;
+  flex-direction: column;
+  width: 65vw;
+  overflow: hidden;
+  padding: 0 1rem;
 }
 
-.sortBy {
-  margin-left: 5rem;
+.filter-title {
+  margin-bottom: 0.2rem;
+  color: rgba(0, 0, 0, 0.75);
 }
-.citySelect {
-  margin-left: 5rem;
-}
-.stateSelect {
+
+.filter-margin-left {
   margin-left: 1rem;
 }
+
+.filter-field-color {
+  /* background-color: white; */
+}
+
 .search {
-  margin-left: 5rem;
-  width: 300px;
+  margin-left: 1rem;
+  width: 280px;
+}
+
+.enter-location-width {
+  width: 165px;
+}
+
+.search-icon-container {
+  position: absolute;
+  height: 24px;
+  top: 24%;
+  left: 8.5%;
+  color: #848282;
 }
 .vendorPaginator {
-  
   text-align: center;
+}
 
+.vendor-list-component ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 0.75; /* Firefox */
+}
+
+.vendor-list-component :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+}
+
+.vendor-list-component ::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+}
+
+.sorting-container {
+  display: flex;
+  width: 95.5%;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0;
+  /* background-color: white;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.75); */
+}
+
+.shop-card-list {
+  overflow-y: scroll;
+}
+
+.map-filter-container {
+  display: flex;
+  width: 35vw;
+  /* background-color: white; */
+}
+
+.sortandfilters {
+  margin: 0.5rem 0.7rem 0.5rem 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  flex-direction: column;
+  box-shadow: 1px 2px 9px 2px rgba(0, 0, 0, 0.75);
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+  height: 34vh;
+}
+.sortandfilters .search-btn-container {
+  width: 100%;
+}
+.search-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+ padding: 1rem 1.5rem;
+}
+
+.search-btn {
+  background-color: #4385f5;
+  color: white;
 }

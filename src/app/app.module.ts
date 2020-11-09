@@ -44,6 +44,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
 import { EditPrintComponent } from './main/print/edit-print/edit-print.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 let config = new AuthServiceConfig([
@@ -84,6 +85,7 @@ let config = new AuthServiceConfig([
   ],
   imports: [
     BrowserModule,
+    MatChipsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

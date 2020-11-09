@@ -51,7 +51,7 @@ button.signup-button:not(disabled) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ccccccc5;
+  background-color: #c5c5c5c4;
   margin: -16px;
   height: 7.75rem;
   align-items: center;

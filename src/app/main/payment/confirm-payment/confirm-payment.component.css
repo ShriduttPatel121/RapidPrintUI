@@ -10,7 +10,6 @@
   width: 60vw;
   height: 100%;
   padding: 1rem;
-  border: 1px solid rebeccapurple;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
@@ -97,8 +96,10 @@
   flex-direction: column;
 }
 
-.user-detail strong {
+.user-detail h4 {
   margin-left: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
 }
 
 .right-pan {

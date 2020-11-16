@@ -1,4 +1,198 @@
-.summary {
+.confirm-payment-component {
+  display: flex;
+  height: calc(100vh - 64px);
+  background-color: #dcdada85;
+}
+
+.left-pan {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid rebeccapurple;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.order-info{
+  /* height: 70vh; */
+  width: 100%;
+  background-color: white;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+}
+
+.info-title {
+  border-bottom: 2px solid #cccccc;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.info-title > h3 {
+  margin: 0.5rem;
+}
+
+.shop-details-container {
+  width: 100%;
+  display: flex;
+}
+
+.shop-info {
+  display: flex;
+  justify-content: flex-start;
+  margin: 1rem;
+  flex-direction: column;
+}
+
+.shop-details-container > img {
+  height: 100px;
+  width: 150px;
+  border-radius: 16px;
+  margin-right: 0.5rem;
+}
+
+.shop-details {
+  width: 100%;
+}
+
+.shop-location {
+  display: flex;
+  margin-top: 0.5rem;
+  color: #7d7b7b;
+  font-size: 0.85rem;
+}
+
+.shop-details > h4 {
+  margin: 0.2rem;
+}
+
+.shop-location > p {
+  font-family: sans-serif;
+  margin-top: 0.2rem;
+  display: inline-block;
+}
+
+.ordered-print-items-container{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.user-details-container {
+  height: 14vh;
+  width: 100%;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-detail strong {
+  margin-left: 1rem;
+}
+
+.right-pan {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  padding: 0.5rem;
+  border: 1px solid royalblue;
+}
+
+/* for print list  */
+.print-list {
+  overflow-y: scroll;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.print-itmes {
+  display: flex;
+  margin: 0.8rem 0;
+}
+
+.print-item {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+.print-item:hover {
+  box-shadow: 2px -2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.file-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  width: 35rem;
+  border: none;
+  border-radius: 5px;
+  height: 2.8rem;
+}
+
+.file-card strong{
+  margin-left: 0.4rem;
+}
+
+.addons-container {
+  margin-left: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 49%;
+  height: 3rem;
+}
+
+.addon {
+  font-size: 0.8rem;
+  /* background-color: #bfbbbb;
+  padding: 0.4rem;
+  color: white;
+  border-radius: 1.5rem; */
+  margin-bottom: 0.3rem;
+}
+
+.file-card:hover {
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+}
+.btn {
+  outline: none;
+  border: none;
+  width: 3.5rem;
+  margin-left: 0.4rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 2px 0px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.btn:hover {
+  box-shadow: 1px -2px 8px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #0fc0c5;
+  margin-left: 0.6rem;
+}
+
+.delete-btn {
+  background-color: #f23030;
+}
+
+/* .summary {
   margin: auto;
   margin-top: 1rem;
   width: 700px;
@@ -36,7 +230,7 @@ button {
   padding: 4px;
   font-size: larger;
   border-radius: 2%;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 td,
 th {
@@ -58,4 +252,4 @@ td {
 }
 .applyWallet {
   margin: 0 12px;
-}
+} */

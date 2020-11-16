@@ -1,147 +1,236 @@
-<div class="summary">
-  <mat-card>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="order-content">
-          <h2>ORDER FROM</h2>
-          <hr />
-          <p style="margin-bottom: 0px; margin-top: 15px; font-size: 25px">
-            {{ paymentData?.centerName }}
-          </p>
-          <p style="font-size: 20px">
-            {{ paymentData?.centerAddress.landmark }},{{
-              paymentData?.centerAddress.city
-            }}
-          </p>
+<div class="confirm-payment-component">
+  <div class="left-pan">
+    <div class="order-info">
+      <div class="shop-info">
+        <div class="info-title">
+          <h3>SHOP INFORMATION</h3>
         </div>
-      </div>
-      <div class="col-md-4">
+        <div class="shop-details-container">
         <img
-          class="vendor-img"
           src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAIIA6AMBIgACEQEDEQH/xAAcAAAABwEBAAAAAAAAAAAAAAAAAgMEBQYHAQj/xABBEAABAgQDBgMECAQFBQEAAAABAgMABAUREiExBhNBUWFxIoGRBxQyUiMzQqGxwdHhFnKC8BVDU2KSJDRzsvFj/8QAGwEAAwEBAQEBAAAAAAAAAAAAAQIDAAQFBgf/xAAnEQACAgICAgEEAgMAAAAAAAAAAQIRAzESIUFRBAUTIjJCsWFxof/aAAwDAQACEQMRAD8AxsKjt7wkDBgYawUHJgpMcJvBTAYTt4F45HLjnAMdgyjHEpUr4UkwqJdZzUQkQaMJR2/CH1PpUxUF4ZGXmJpV7fQoKh90WmmezXaCbwl6XYkGz9qYcBV5JTf77QeJrKSAVaJJg4SoC5wpA58I12n+yuRaAVUqk++eKGQG0/mYslO2R2dpmEytKYUsf5j93FeqrwdCtow2RpVUqCgiRlZ2ZJ03LSin1GQ9YslN9mdemzjmwzJJ/wD1XjV6D9Y2ceEYWxhTyGQ9IGcHkCyobPezinU95h+bnHppxlQWEBIQi/bMn1i8IaabHhQkHnqYI2IUN4FgOLXDZRzhfdqUYXZlCT4vvjGGaWyrhDlqTUvUWEPVol5NGObcbaRzUde3OIip7WyMi0pbSU4APrXyEIjXRqJdqSSgX++Gk5VqfJYkrfC1p1Q14j58BGVbR+1DflbMmp2dVmBuwW2gfzioOzNerpPvL6mpf/SZ8KYHb0GvZpu0HtOkpMqalnG95e2Fr6VfnwEUWd2mr9dcO6Blm+C3Djc8uA9IQp9DlZUjEATbMqVbPvEpLMpdKQE3tlYC1vOGUPYbRGStJQpwOzalzT5OaniTEsqiombhDICOAJvbziTlZRtlreTK0pSnMlWQiIre2MpJNlimBSnicl2yHYGGbUQpciIrWzLDAshzA4Re3C35RJ+zvZ01epBubeeekZMby2M4MXAC/CK01OTs4tSptwkKOTfG8av7NZ6SlJU0otrbnVXecUriOF+XSObLOy0I0rLg4kBFrAACwgQZ4pUDbMQIkOnZ5Vjt4O80ppzARc8LDWF5SnT86sNychNPrOiWmVKP3COlI5xtHLjjF1pXsw2hngFTYZkEH/VViX/xH6xcKV7KaLLFLlRmZmdUNUXDaPQZ/fBoFmPNJaUvAokknw24+UWalbF1upAKlqY42gi4XMDdg+uf3RtdMo9MpQApshLy6h9pCAD66w/JJzOsG0CzM6b7KnCQuq1RLY/0pRFz/wAlfpFrp+w2zUjY/wCHImlD7U39L9xy+6LAAYVSnKBbBYRtKWUBDCENIAsEoSEgDoBHczCgSI7hgWASw9IKU8ochonnBwx0g2YaBBgyGlGHyZccRCzjTcu3vJlaGW/mWrDGswzQwbQ4blVLIABPaI+a2hlmQUyLBmFj7a7pR+p+6KTtLt/KS2Nqdnt85p7pKW9FWy9TCuXobiX6Zn6fI3Dj28WMt2zZRHnpFa2g26Zprd1vNSKbZXOJxXYftGT1LbKsVLE3T0JkGNBgF126q4eQiNkaG9NvFxwlTijdS3CST5xknINVssNX9oU1NurFMl1kk/8AcTZxKP8AT+piKk6BXdpXPeJlT8yjFYuOKs2k8uQ7ARddndlKW1Lb59Djz7Z0A8BHXjFp326bwMAJbtbBoD0tHRHD7JvJ6KdJ7GSNMa3j5RMqUBoCEoP6x2bZbbXu5b4bC1k4b+UT09MBKlrCt2lQsQCdD+GfOK/PTrTQUlBGd72Ofe/H8Io0oroVWxv7tndeueQOsEm6tK01s6LWNEpOXmYhZ6sqcUpppWG+ardf7/8AsJSdLdnl2Ui4OpOg84g5+iyh7I6q1+dqjpShZCByNkiFdn6XLzMwXJl0kJ+JXEmLH/Ckut1uXmHEtj4glvM9yBp5wSvbK1KjSDT8uws0x5WDe28ZXwBtwOn3ROcXVlYO2kcQ7LOTSWaXLpJR9Y+ofAOnMxoOzv8AgMrLlqVUBMO2Lrj/AMbiu8UalyyZOWDY+JQus9Ycq0yEePknyfTPp8f0yDxLns0hTFvEy4qxGWE3EdjPGKpPSpBZmFpAyte4gQnPJ7OaX0id/i0NJSlU3ZTaBMttPINzcjMrHuVQcBKWzyWm9r8/UZaak0200yES6EIbtkGwALeUMKlS5WrU92Qn2g4w6M76g8CDwPWKdS6pPbC1RuiV91cxSHv+ynjngHyntxHC9xHuf4PmzQrmBCyAlbaHG1BSFpCkqBuCDoYAR0gGEwLwcCDhs8oWQyTANQklPSFUtGHDbGdoaVmt0fZ9vHWKixLKtcNqN1q7JGZ9IxqF0sknSFksAJK1WSkC5JNgBGXV/wBszTYU1s7Sy4dBMzhsnuEDP1I7RnO0O1Vdrqiqr1V5xtWkshWBsf0jLzNzBo1HodnaDZ92eEi1WaeuaKsIaTMJxE8tYNtDtJQNmm8VaqTTC/sso8biuyRHltnc47LASnne2E8DEuuqVKVmlrQUGcSEtB95sLdZCbjwE6a666RqCa4z7T1VGuGmyFOXTmNwXveZywcIGhwnIAiK/XfaBTmnVBlbtVmrnNKjgB/nOvlGbFh6cfU9NvOvur+JbqyonuTrEtK0ZfuLk60wXGWThdKBfd8iq2g6wrSDRypbQV2tEpdmPd5Y/wCQx4E26nU+ZhEUYyeD3lhbRULp3iCnF2vCuIDIaRJzNdqc/T25CamFPsNZpxpCl2HNWthDJGsTpnuzDig/KpebUCD4sKkngoHhbloeIidlZVyXW2F4CFpCkKQbhYPEfvYxBSLDjyrgWSMyTkIscqWmBu1FKHEouN43a/Lhck8zHRjpMlOyxU5W5bxlRQbZKBtAemfCEsHFdBOJJBKf5uCRFdn68lkfRE75KcK8KyBfjiPDsPSK5PV2am0iWSs4Ar4Uiyb8yBqe+Y4Whp5UgKDZN1ysIQcLL6F5WWpAsknp83f0uM4qzhq1TeW3Jyyt2B43lmwSOZPCHkhTHpuYRjbU+o52SMrfkOsTktUFSzyJOZp6klpeUuFBDaT8xJ1P+4xByb7kVSrQ2oOyIKk3UtwEXUq1sR89B3zi8UiivvTRkachCQ1h3z5TkzfPIcVRGVHbWToiW5ZiTS5ME3fUyrHuhqcNx4lW4nyvrGgbFtSLKp4S7iVvzKkTCylwLCxhCQq/PQHrAcopDq9jyT2apUrLBgyyXbqC1uO5qWoEG5Pl2gu27batlJ9K0pIS2CnLIEHK0SzjgstIGYioe1Co+67PtSSVHezbguR8qcz+Q84nllUGy/w8csnyIJezNEm+cGvCSFaQoI8aj7hnCLwINa8CMA1BKMob1ajylbprtOnmd4y4OHxIPBSeRhetVqibNSSZuvTLraVKshDbZUXDa9hYW8zYRH0Pa6e2kQ7/AA7Q5iTlwBupqaZvvOoubep/SPbPz4plHqs/7Paymg7RLU7R3iTKTlski+o/NPp11ZtpDjaXGlpW2oYkqSbhQ5gxWtrhRZjZdunbdz0mioKRdXuYKlIdt8TabX48RbO2kUvY3a+folI/wprFPqxncKdThDV9AM7nnaGUXIVySNbcDTDSnX3ENNpF1LWoJAHUmKhWvaXs/TEFMkpypPDL6DJu/wDOeHa8UPaaYn3VLfrs4sLGYYWoqKP6OHpEZR9ktodobOU+lluXWMpmbVu27c7anyvBUBedjyue0raer42pd1umyxB8MrkoD/c4rP0tFSkKbUavOKTTpSZqD61HGtsFVzzUs5DuY2Og+yCnMFLlYdcqbwIOAfRMgjoMyP7tE/WalJbOy7MhR5eVefvYSrJwoa5EgfqIZRQryejP6J7Kp59vHXJxMom3iYlRdduSnDkPwgu3ns6p7Oyya3ssWnWpUEPpYd3ocbvmrECc0536dosdQVUnZGYTtTVAzLPhOKTlm0qIsbi1gcPe56kxylbWU6msy7ElIPpaWsIdQtIwhsmxxH7ZIBz/AHhpRpCRm3K2YQwQRY2sdYlW3TNygxH/AKqXSAQf8xsaHunQ8xblFl9p+xg2Ure+kkXpc6SqWUNEHUoPbUdIpQWtt9DjSsK0m6TEU6OnZJsG60gLQgE2xLNgO54Q7cRMMuql3UuIeVYFsZFXLT4hxHCI8KQVJdQFbpeRCdUq5eX4RLIWqaqbSmkzjwS2EoWF3X4RqLWwgcuEBryEbtNLdVZtJUc/KJCTaZaewKmm0uKBSolwpQBbMKI1B0tzt5tpibbclkCWW4lSiouNYLAC+XivdROcJvPPTToefUCqwGLABcDIAJFvy7wbow9VO42AhbafjuhSbg2t8IT+3CE3p95dwVqF9TiuSe/5D1iOdmG2blZIyz5n9vuh3JSsvUlNNEuJK80jRVunP8I3JvRuKE0pU4QMlG3hQMrc+giUpMtJTEwJdt9KXOfBXRP6w7/hKeemG5enlG6OS1E3w9VHj5fvF1pOytPp0ouWSz73MzKClxxXxK4eQH98oeEa7YHY/pFEpEtIOuVN9tiSwYVFLoCnF24HUkdM9IoE8X6ntQ3Q6bLokyt7dMqecLiuilLN8yPS9tYkdntl36ttA9R5qaU0mTxYnBYjUXCOGev4wxqbDWyW1bIlbPLknkr8SrFzCo+lxaOaWW3ov9qv9klMeyvaWSONtEpNqWrMtuWIJ45xYdhJaoUKeaklICptwhL7a8y0knFwOVhElJe1KWn5yXaYpj7bdlKmS4pN020wWOfnaLRJJZmJh2sIZCC+gIaumyinme/4CJTSnL8X2ho3CP5LpkiMsSlZZ/dGM7ZVf/Ga8842by7P0TPUA5nzMaxNXdllsqJBWmxKTmIodT2KwBS5E2Hy6iF+Vk5fhFnofScmHDkc8u/BSgIVRC01IzUkvDMMqT1tlCIzjg0fUwcZq4u0HgQSBGNRePZltVLbXUoSVWS07UZQBR3yQregaLsftA6+R4xC+1PbCeaqzuz9JmHJRqXSj3l1pRQtalJxBIUMwACnTnbvkdArE3QKqzPyOEPNLStJV34dxcHoYv22bYqE+1tGypbstU20KxfIoJAt6D1Bj3FXJH57JdFXcUxLG864tQV4lJbspauOZJtfufLhHP4rmZdtxqkspkEKFt62bvkcRvMiP6cMErMst4+8AXUkAEgW0iFwkRSU5aEUU+zX/Y1UKTVp16SqcmwuqoBclnHBcKR9qwOWIHMnU31yy1yceEtZKJdb6yMgLBI7mPJlNnpqlVCWqEi5u5mWcDjatRcc+nCPUNBqzO12zstVJIgFxNnmQrNCx8Sb9D6iFs0oEfVJx1QUmfnClFj/ANLKHDfurWKlNOoU8p1FNZS2UFttFzmc8+9z+sXZ6lPPN2ZZ+lB+JWgEKyOycq297xPKMy9wTokfmf7yhlJEXB2Z/RJCpz8s/KU2SLrbvhecetgQod9LeemkW+j7Dy0upMzWX/fpm9ymxDQ6W4/h0ETFe2iouzEkldUm2JRsJ+jbHxKtwSgZmMir/tUrm0L6pDZVj3KXXce8OKG8I53PhQPU9eEBybGUPRfPalP7Nfw9MU2vzSErcRil2mgFPJWPhUlPDPsLGPOLCMRT4uPGLJPUqmU0LdrM+7OVBYxLbbV4gTxUVZ/8rZfZMRMpJTdZmHBIS4QynMrUqzbSealGwt1NondloqhBCw2laUqxA2JJyFxDqSdWtVwLhQ8Y4YfWLFTXJDZUpck1CaqpGUwpu+7/APGk6fzHyBiBM2iamX8eHGt0rIBGAKNrnqb3z0gX6HFkBslW7wuAHU5jyHHufSGrzr6pgMtNuKePFWtuf7xLM055tO+dKkJPw4hcK5ADX++hiw0wyr43DzFsRslKlfWc7kfh65ZAqJrKS3LpQ4ourS6tPxqviSn9TFjlKMkp95qDAU8EBwNlX0qrak8hxsM4mG5Cj02ceEyl8zYSrdOlv6tXAj9ekRkkVvqTd3A4lwfCLqUb6gak/fGk+CNFNsn6JXlSa22ZxxsSrij9KkWLI621HnfrGm0mmCYbC2cTcqux3ujj3b5U/wBi2ppNM2Smqu6zOT0u0wpp3BMMuAhJGE/SZarvYW840yjy7FPlG5BjGWpdOFG8ViNu/wDdoEXKux5uP8TMdtWGpbad9hhKWmkoC8DfhFyE2000idlNhqC9s41OV2UKptSN448HVJUAdBkeVojtqFy87tDNPTbC/ozuUkKIBCdO/GFZurTVWlfc30uvtk2LaEgXytbKPL++oZJHY8blCP8A0i9kqHLTdRdZlJctU8qxgu+JYbByJPNUaXMPAkNMgJSgaDh0EQcrIMUkMttEtoRZbyUquXHSMr9AL5c4chCiveNu4r634w6msUWv5MSaeR2tIfpVc5iDFIUIbh22ShBgu+cRpk6CzEixMpKXmkm4tpFXrGxjDg3kkrdK+UZj0i3hyOmDyK4s+TC7g6Mfn6TPU9Z3zRwj7YzECNZeaQ6ClxsEHXLWBG4wPWh9byJVKNs8lINxhJ4eGNO9mNRps/IO7NVZasT5UZVRNg2vW3nqOtxxF8z3Ky2p1I8CCArpfjCsq8tt1LrZIcRxSbHyPAx6yPnS81WTfps5MSswiy0KKbcCeY6GKzUJPdPEJzbOaTzHKL23UW9r6OibcVaq09oe8kgAvtjLeZcjryJvkLRGhlhVLmWyyCu+Jtaz8KgOXUD8OUVT5Il+rKoxILcyJQgZZqNhbnGhezjaumbIVVynOvq91m3ghboVdtJzAX20z5a6ZZ7OzTky+p11ISogCyU2GQsBbsBDUIW6tLTTanluKwpQhJUVHkANYPVUbtnrurVSQpEkucqc01LS6RcrdNh2HMxj21ftlfmlLkdjpdSdR77MN3PdKOHdXpFJeoddqO6f2knJhUvLgNgPvEhoDRN9E8Mhcw1fnqXT3N1KoK0ji0B4z0v+Jv2hONbMMp9EzOPmfrM45MzLmalOKKjblf8ATKEm5p9xaZamtKStRy3Y8V/LTy9YlZeizVXKZqfwU2RJITjBKnOdhqs9sh0iQRUJOlsliiS+6UUkLmVEbw9SofD2Sf6jCSmkOosZyuzLUikPV90Fw5mVaV4gdfGr7PbM9OMLTlUO4Q03hk5JJAQhtH/qMyo9Tc9QIjFzT02sqZs4Bcb1fwJ6JHHyhRphKFYyVOOcXV6+XIdBEpS9lIxE3mlTACWmzLtk+JSzidc752HYed9IdUiSk2VpUWw7MAYktqyQ31PzH7unGHUhKOzO83SU4UJxLUo2SgdT1OXUxPbF7KVWsTbU7NNoYlGwopS8lSSV3IBFje4HHTodCcbbYZJIJMTEnJLaTVnDvHhcDDmE8wOA6anrDqUpypmanFskOSaVBLSgLg5AkDK5PT1tBq/sahifQ/UnHMb7hS2Aq6lkZgKNvFcZ3SDy11tuytBeZW43KhKThShWIXRLjXPmo3HgHS5EdHIkQ8lRF1JLkm4hbkwEpMsdVDW+I/KLDXIXy4RJ7K7BKanFTVVaKnGlEDCqxuMrI6X48o0CnyDEg2UtJJcVm46r4l9z+A4QWeJS8wsrKRiIvy4/rANboRU/JMyu6ctLpR8CdBy8zDxDra1gN5+C4I+XK0RFRDBm20TYQ81MtFNk6pVmcVutrX6QVT5lKbMmTbu+yylpCEC13CMh3zB7RGM5OTT0huK8EjNusmclpVbLbql4l+MXwJHHvciIraSvN0mWWxJboTy0HdpULJB4E2jk3NmQYDilhc+42lCzwRx/EmK8thM6MTqd8SSbK17gxy5/kxxvit/0dGLBy7ejORWto6NUHJioqcS+6rEpd8TTv5RZtldvnp2pokpyTSlcwrCjdjwg/p1g+0GzkzNIYalFqdlwu7rCtRlD/YPZBqjKVOz6wqazDadd2nnnxiTyQyRt7KKEoSpaLaiYBGEixPA/rB8ZScr9jCLzBV8KbmGgmXWF4VjGnkY51JorwUiVbfBy0PIw4C8rxFtvNTCQG12VyIzTCiXls2So389YdNSJSxPwSeIWjsNGnsfQ8oENwl4JPo8tSDpZdVjTjbcTgcRzSfzhJ9j3d3ChWJs5oX8wiWl6eB1PO2Qh05SRMS5Q0LvDxJJ48xHsOCSs5eYwolSmKZPImpVwNug3FxcHhYjiDoRxEW9mYlVqW5LpBacFy0V3Lf8AtvqbcCdRbjeKGE4CUrFiLi0SMjM7sbxTqEOI8PjHhIPA9OvDWNGVM0o2ide2bdnZ0uSqCtKzdKRmf0++JtiYkdg2VKQEPVRaTdpOah0Wv7I4YU58zEais1BinlqUbEqV2s5iK2081XQFE9BoNdYiEMyRxOVGceqCycSklJaQT1J8avQd4MppaFUW9nX6jV9p3nFuBLiUggOLVu5eWSdSBoO5PkTCsqxTqKrG0BPT1s3XE/Ro/lSbEnqqw/2mG85UnXG041oZl0fAhKcKU9EpHHrmephmN66L2Uyg/aOa1dhw7mIObZVQSHU9Unpp475a3Hli27SblQGgPIdMgOAhBMuXbGaUlZvk0g+Adz9r8IO22hpJQ0MKSbq4lXc8YUAytEnL0UUQ2ZtcaZAW0gYuCbd+EC3zekFUrDnCDls2FpqJioLmi0H1sFJGIA2JvnaNkp8oshK3Cc+AjzJR9oqlQdpE1OnFWNJwqbVfC6jik9Dn2MeodmatK16iy9Rk0rQh1N1NrFlNq4pMdsHUaOaXbFapSWKpLtMvLdbDTgcSplQCtCCLkHIgkHjnlaHMvLsyrKGJdtLbSBZKUjKFrwRarRgAJAEMKkoBgEjK4uOY5Q7KrxA7U1Z2SaZl5JCXJ2YNm8QvuxoVnoIEpKKtjJX0R9Zq4ozjTSW23ZtbZW2hR0GgvyGpPIA84eUzeU2ktMqe3088S++7a+FS8726CwHQRDzrEpOTTbykrcSgJcUcWbiU/VoPIEgqPO4vDqRqDc39KhZSrESu/PrHDlzcG/Z0wxNoXclUTCiLWXwUk69+cIpkHJdYcViSNQoDw/tE1LoUlO8sFK4pP5GDl1KxgICCNUrNwY5XBS3sspuOiHTZbpUrwq4GHQXhWkPICsWiwNIVclUWJaTcfITl5QgqwFr4SNUGEUXEfkpCq0kZIOMcuP7w0eYS6LDn5wbGUm6DhI+yYUDgWQHBhXwtAdMNNDNynhSFJWDa4KSDYpMKFDjKBvUF5PzH4hDveEXSsXT8w0hVCG8N8yO8FIzkMk2UMTCrgagZEQIdLYbUbgWPTKBBpoW0YNLt6BzU54AMzD9CF2zACdcI08zxhWWlUpTmm19RxPeF3EpR4k/tHuN2eVorVdppQDONoyJ+kAH3xCpBCFC1yM8+Ii9OEuJKSLpIsRzip1KRVJTIH+Uc0fpE2PF2N5JbSQpIVgHykG33QsteH6pKbn7StPSGXwu5C4OcPUi6AQRE5FkCXbIXvFq3jvBah8PblDm3PWEWj4rQ4ETd+RlR1Ig4SI4kXhVKT5c4QZILbKGE26BZBNsRCb8okF+L4dOfOIergpW3yJyho9sEtEpJpQ42llu3vTPjaU4B4rapMW72S7UzMhtgabOuH3WpjAEE5Nuj4T5gEenKKMw2Sy08okrChaxtY21iX2aopmam1PTLi2dwoOsJGRcUkgpPbLzin3Irtk/ttnphw2J5wgpUd3odaQ586Qr1EIrVF76J12GK4qNTmnKhOvIlEqThXuy8BqEm2XS94sbzobTdRPSItxJbXvWvqz9lIzSP0jl+RkpUWxR7EPckoYDTSSCBe5zJPWIAtzLFUQ44lSG75gC2fOLhLIS6reknEfhIMKTck28sqWm5VoRwjhlBy7OuGTj0xvKTZCUm+WXiHHvD1zdqRmASdRrEU5LLlVWzKOfOOsvqb+DMX+EnLyhVJrphlBPtEgghq+JQsBmniILMIaWjK2L5oTQ8l/4c1DgdRHFuFBBcAzNiByhuSaE4uwjrJwEq9QPxhEkosVpxJ4Q9SoKAsvT8I66yharpyUfvhHH0OpVsZsr4tqvzSqDpN1fRqKFcUnQ+UJOtWVyI4QkVnGd5cH5oC6GpMfIesqyxgOlzoYENUveCxIWnlAhuQrgZm5whu79Qe8CBHuHksI3qO0R+0YHuCjYXBFjAgROY0NlUWSkJKSRmdO8WGXJNMuSSecCBG8FkRaM3s84cj84ECOeQ6FkR1fxIHA6iBAhB0KJ+BPeFae026zUd62heGXUU4kg2NxpHIEFbAxlSkpUqTSpIKS6LgjI+GLdMCySRqCCOkCBEc37I6MHk2SmEmkSBJuTLt3/4worjHIEegtI4PJGTZPvJFzaOSX1pHC8CBHm5f3Z1Q0OkAJmVpAsnWw0h2g3QL84ECDAEtic2BuhlziEX9dbheBAiOXZbFoTJKXUYSR4uESixd1QOlo7AhI6GlsIABaw+xCi/iR/JAgQ4jDPgGXuQL21iGWbuG8CBCS2UhoI1ko2gQIEAZn//2Q=="
         />
+        <div class="shop-details">
+          <h4>
+            Khush Gandhi Cyber Cafe
+          </h4>
+          <div class="shop-location">
+            <mat-icon> location_on</mat-icon>
+          <p>
+            31/A Mangal-Iccha, bhairavnath road, near by Hanuman mandir,maninagar, Ahmedabad, 382443, lorum ipsum
+          </p>
+        </div>
+        </div>
+      </div>
       </div>
     </div>
-  </mat-card>
-  <mat-card class="print-list">
-    <table>
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Color</th>
-        <th>Pages</th>
-        <th>Print Side</th>
-        <th>Page Type</th>
-        <th>Total Copies</th>
-        <th>Price</th>
-      </tr>
-      <tr *ngFor="let print of paymentData?.printData; let i = index">
-        <td>{{ i }}</td>
-        <td>{{ print.name }}</td>
-        <td>{{ print.isColor ? "Color" : "Black & White" }}</td>
-        <td>{{ print.totalPages }}</td>
-        <td>{{ print.isSingleSided ? "Single Sided" : "Double Sided" }}</td>
-        <td>{{ print.pageType }}</td>
-        <td>{{ print.numOfPrint }}</td>
-        <td>12</td>
-      </tr>
-    </table>
-  </mat-card>
+    <div class="ordered-print-items-container">
+      <div style="margin: 1rem;">
+        <div class="info-title">
+          <h3>ORDER INFORMATION</h3>
+        </div>
+        <div class="ordered-print-items">
+          <div class="print-list">
+            <div class="print-itmes">
+                <div class="print-item">
+                  <mat-card class="file-card">
+                    <img src="../../../../assets/images/PDF-icon.png"style="height: 2.5rem;" />
+                    <strong style="width: 25%;">PDF file name</strong>
+                    <div style="height: 2.8rem;margin-left: 9px;"></div>
+                    <div class="addons-container">
+                      <div class="addon" >
+                        <mat-checkbox color="primary">
+                          Spiral
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox color="primary">
+                          Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Hard-Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Lamination
+                        </mat-checkbox>
+                      </div>
+                    </div>
+                    <div style="height: 2.8rem; margin-left: 9px;"></div>
+                    <strong style="margin-left: auto;">&#8377; 50</strong>
+                  </mat-card>
+                </div>
+                <div class="btn-container">
+                  <button class="btn edit-btn">
+                    <mat-icon style="color: white;">edit</mat-icon>
+                    <span style="color: white;">edit</span>
+                  </button>
+                </div>
+                <div class="btn-container">
+                  <button class="btn delete-btn">
+                    <mat-icon style="color: white;">delete</mat-icon>
+                    <span style="color: white;">delete</span>
+                  </button>
+                </div>
+              </div>
+              <div class="print-itmes">
+                <div class="print-item">
+                  <mat-card class="file-card">
+                    <img src="../../../../assets/images/PDF-icon.png"style="height: 2.5rem;" />
+                    <strong style="width: 25%;">PDF file name</strong>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <div class="addons-container">
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Spiral
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Hard-Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Lamination
+                        </mat-checkbox>
+                      </div>
+                    </div>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <strong>&#8377; 50</strong>
+                  </mat-card>
+                </div>
+                <div class="btn-container">
+                  <button class="btn edit-btn">
+                    <mat-icon style="color: white;">edit</mat-icon>
+                    <span style="color: white;">edit</span>
+                  </button>
+                </div>
+                <div class="btn-container">
+                  <button class="btn delete-btn">
+                    <mat-icon style="color: white;">delete</mat-icon>
+                    <span style="color: white;">delete</span>
+                  </button>
+                </div>
+              </div>
 
-  <mat-card class="price-list">
-    <div class="row">
-      <div class="col-md-10">SubTotal</div>
-      <div class="col-md-2" style="text-align: center">
-        {{ paymentData?.billDetails.basePrice | currency: "INR" }}
-      </div>
-    </div>
-    <div
-      class="row"
-      style="margin-top: 1.5rem; color: rgb(133, 26, 26)"
-      *ngIf="
-        paymentData?.billDetails.walletPrice != null &&
-        paymentService.walletApplied
-      "
-    >
-      <div class="col-md-10">
-        <strong>Wallet Applied</strong>
-      </div>
-      <div class="col-md-2" style="text-align: center">
-        <strong
-          >-{{ paymentData?.billDetails.walletPrice | currency: "INR" }}</strong
-        >
-      </div>
-    </div>
-    <div
-      class="row"
-      style="margin-top: 1.5rem; color: blue"
-      *ngIf="paymentData?.billDetails.offer != null"
-    >
-      <div class="col-md-10">
-        <strong
-          >Offer Applied - ({{ paymentData?.billDetails.offer.code }})</strong
-        >
-      </div>
-      <div class="col-md-2" style="text-align: center">
-        <strong
-          >-{{ paymentData?.billDetails.discountedPrice | currency: "INR" }}
-        </strong>
-      </div>
-    </div>
+              <div class="print-itmes">
+                <div class="print-item">
+                  <mat-card class="file-card">
+                    <img src="../../../../assets/images/PDF-icon.png"style="height: 2.5rem;" />
+                    <strong style="width: 25%;">PDF file name</strong>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <div class="addons-container">
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Spiral
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Hard-Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Lamination
+                        </mat-checkbox>
+                      </div>
+                    </div>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <strong>&#8377; 50</strong>
+                  </mat-card>
+                </div>
+                <div class="btn-container">
+                  <button class="btn edit-btn">
+                    <mat-icon style="color: white;">edit</mat-icon>
+                    <span style="color: white;">edit</span>
+                  </button>
+                </div>
+                <div class="btn-container">
+                  <button class="btn delete-btn">
+                    <mat-icon style="color: white;">delete</mat-icon>
+                    <span style="color: white;">delete</span>
+                  </button>
+                </div>
+              </div>
 
-    <div class="row" style="margin-top: 1.5rem; color: grey">
-      <div class="col-md-10">Taxes & Charges</div>
-      <div class="col-md-2" style="text-align: center">
-        {{ paymentData?.billDetails.taxPrice | currency: "INR" }}
-      </div>
-    </div>
+              <div class="print-itmes">
+                <div class="print-item">
+                  <mat-card class="file-card">
+                    <img src="../../../../assets/images/PDF-icon.png"style="height: 2.5rem;" />
+                    <strong style="width: 25%;">PDF file name</strong>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <div class="addons-container">
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Spiral
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Hard-Binding
+                        </mat-checkbox>
+                      </div>
+                      <div class="addon" >
+                        <mat-checkbox>
+                          Lamination
+                        </mat-checkbox>
+                      </div>
+                    </div>
+                    <div style="height: 2.8rem;border: 1px solid #cccccc; margin-left: 9px;"></div>
+                    <strong>&#8377; 50</strong>
+                  </mat-card>
+                </div>
+                <div class="btn-container">
+                  <button class="btn edit-btn">
+                    <mat-icon style="color: white;">edit</mat-icon>
+                    <span style="color: white;">edit</span>
+                  </button>
+                </div>
+                <div class="btn-container">
+                  <button class="btn delete-btn">
+                    <mat-icon style="color: white;">delete</mat-icon>
+                    <span style="color: white;">delete</span>
+                  </button>
+                </div>
+              </div>
+             </div>
 
-    <hr />
-    <div class="row" style="margin-top: 1rem">
-      <div class="col-md-10">Grand Total</div>
-      <div class="col-md-2" style="text-align: center">
-        {{ paymentData?.billDetails.totalPrice | currency: "INR" }}
-      </div>
-      <div class="row" style="margin-top: 1rem">
-        <div class="col-md-12">
-          <strong>
-            <mat-checkbox
-              class="applyWallet"
-              labelPosition="before"
-              [(ngModel)]="paymentService.walletApplied"
-              (ngModelChange)="onWalletAppliedChange()"
-              >Apply Wallet (Avilable Balance-:
-              {{ currentWalletBalance | currency: "INR" }})</mat-checkbox
-            ></strong
-          >
         </div>
       </div>
     </div>
-  </mat-card>
-
-  <mat-card class="user-detail">
-    <table>
-      <tr>
-        <h4>ORDERING FOR</h4>
-      </tr>
-      <tr>
-        <p>
-          {{ paymentData?.userDetail.name }},
-          {{ paymentData?.userDetail.mobile }}
-        </p>
-      </tr>
-    </table>
-  </mat-card>
-  <button mat-raised-button color="primary" (click)="placeOrder()">
-    Place Order
-  </button>
-  <button
-    color="accent"
-    mat-raised-button
-    class="apply-offer"
-    (click)="applyOffer()"
-  >
-    Apply Promo Code
-    <mat-icon> local_offer</mat-icon>
-  </button>
+    <div class="user-details-container">
+      <div style="margin: 1rem;">
+      <div class="info-title">
+        <h3>USER INFORMATION</h3>
+      </div>
+      <div class="user-detail">
+        <strong>Khush Gandhi</strong>
+        <strong>Mobile No.: 1234567890</strong>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="right-pan">
+    <div class="order-summary">
+    </div>
+  </div>
 </div>

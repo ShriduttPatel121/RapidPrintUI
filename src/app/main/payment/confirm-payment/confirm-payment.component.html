@@ -229,7 +229,54 @@
     </div>
   </div>
   <div class="right-pan">
-    <div class="order-summary">
+    <div class="order-summary-container">
+      <div style="margin: 1rem;">
+        <div class="info-title">
+          <h3>ORDER SUMMARY</h3>
+        </div>
+        <div class="order-summary">
+          <p>Sub-total</p>
+          <p>&#8377; 400</p>
+        </div>
+        <div class="order-summary">
+          <p>Wallet Applied</p>
+          <p style="color: #03a685;">-&#8377; 40</p>
+        </div>
+        <div class="order-summary">
+          <p>Offer Applied - <strong>(RapidRocks)</strong></p>
+          <p style="color:#03a685;">-&#8377; 40</p>
+        </div>
+        <div class="order-summary">
+          <p>Taxes & Charges</p>
+          <p>&#8377; 0</p>
+        </div>
+        <div style="border: 2px solid #adadadc7;"></div>
+        <div class="order-summary">
+          <p>Total Amount</p>
+          <p>&#8377; 320</p>
+        </div>
+        <div class="order-summary large-fonts">
+          <mat-checkbox color="primary">
+            Apply wallet(Available balance : &#8377; 123456)
+          </mat-checkbox>
+        </div>
     </div>
+    </div>
+    <div class="cupon-container">
+      <div style="margin: 1rem;">
+      <div class="info-title">
+        <h3>OFFER</h3>
+      </div>
+      <div class="cupon-config apply-cupon" style="display: none;">
+        <div class="icon-container"><mat-icon > local_offer</mat-icon><p>Apply Cupon</p></div>
+        <button mat-raised-button class="cupon-btn">APPLY</button>
+      </div>
+      <div class="cupon-config edit-cupon" style="display: flex;">
+        <div class="icon-container"><mat-icon> local_offer</mat-icon><p>Applied Cupon - <strong style="color: #03a685;">(RAPIDROCKS)</strong></p></div>
+        <button mat-raised-button class="cupon-btn">EDIT</button>
+      </div>
+    </div>
+    </div>
+    <button mat-raised-button class="place-order-btn">PLACE ORDER</button>
   </div>
 </div>

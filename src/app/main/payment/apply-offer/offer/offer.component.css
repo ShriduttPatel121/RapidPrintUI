@@ -1,0 +1,23 @@
+.cupon-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 10rem;
+  padding: 1rem;
+  border-top: 1px solid #cccccc;
+  cursor: pointer;
+}
+
+.cupon-code {
+  width: fit-content;
+  border: 2px dashed #da4149f5;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin: 0 1rem 1rem 0;
+  color: #da4149f5;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cupon-description {
+  font-size: 0.9rem;
+}

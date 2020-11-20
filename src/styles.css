@@ -58,3 +58,7 @@ div.mat-paginator-range-label
 .page-input-container .mat-form-field.mat-focused .mat-form-field-label{
   color : #4385f5;
 }
+
+#offer-form .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #cecece;
+}

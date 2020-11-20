@@ -1,19 +1,19 @@
 <div>
   <h2 mat-dialog-title style="font-size: 24px">Apply Coupon</h2>
   <div mat-dialog-content>
-    <form style="margin-left: 3rem">
+    <form id="offer-form" style="display: flex;">
       <mat-form-field
         class="example-full-width"
         appearance="outline"
         style="width: 60%"
       >
-        <mat-label>Coupon Code</mat-label>
         <input
           type="text"
           matInput
           #offerCode
           (keyup)="capatlizeInput()"
           style="font-size: 18px; font-weight: 700"
+          placeholder="Coupon Code"
         />
         <!-- <button
           mat-button
@@ -27,33 +27,32 @@
       </mat-form-field>
       <button
         mat-raised-button
-        color="accent"
         style="
           margin-left: 1.5rem;
+          margin-top: 0.6rem;
           width: 130px;
           height: 50px;
           font-family: okra, Helvetica, sans-serif;
           font-size: 16px;
+          background-color: #da4149f5;
+          color: white;
         "
         (click)="applyCode(offerCode.value)"
       >
         Apply
       </button>
     </form>
-    <div
-      style="
-        width: 100%;
-        background-color: rgb(238, 230, 230);
-        text-align: center;
-      "
-    >
-      <h3>Available Offers</h3>
-    </div>
     <div>
-      <div class="offer" *ngFor="let availableOffer of availableOffers">
+      <div class="offer">
         <app-offer
-          [offer]="availableOffer"
-          (applyCodeEvent)="applyCode($event)"
+        ></app-offer>
+        <app-offer
+        ></app-offer>
+        <app-offer
+        ></app-offer>
+        <app-offer
+        ></app-offer>
+        <app-offer
         ></app-offer>
       </div>
     </div>

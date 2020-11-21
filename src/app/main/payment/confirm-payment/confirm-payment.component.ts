@@ -41,7 +41,7 @@ export class ConfirmPaymentComponent implements OnInit {
     this.paymentService.confirmPayment();
   }
   applyOffer() {
-    this.dialog.open(ApplyOfferComponent, { width: "600px" });
+    this.dialog.open(ApplyOfferComponent, { width: "600px", height : "635px" });
   }
   placeOrder() {
     this.paymentService.placeOrder();

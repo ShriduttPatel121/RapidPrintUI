@@ -6,6 +6,7 @@
 }
 .order {
   max-width: 400px;
+  margin: 1rem;
 }
 
 .INCOMPLETE
@@ -18,7 +19,7 @@
 color:rgb(37, 245, 10);
 }
 
-.PLACED 
+.PLACED
 {
  color: rgb(216, 17, 156);
 }

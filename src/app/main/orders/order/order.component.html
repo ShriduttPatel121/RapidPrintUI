@@ -1,15 +1,9 @@
 <mat-card class="order">
   <mat-card-header>
-    <!-- <div style="float: right; color: tomato">
-      <strong>PAYMENT IN COMPLETE</strong>
-    </div> -->
-    <!-- <div style="float: right; color: rgb(37, 245, 10)">
-      <strong>DELIVERED</strong>
-    </div> -->
-    <div style="float: right;"[ngClass]="getStatus()">
-      <strong>{{getStatus()}}</strong>
+    <div style="margin-left: auto;">
+      <strong>ORDER PLACED</strong>
     </div>
-    <div mat-card-avatar style="margin-right: 2rem">
+    <div mat-card-avatar style="margin-right: 1.5rem">
       <img
         class="vendor-img"
         src="https://material.angular.io/assets/img/examples/shiba1.jpg"
@@ -23,34 +17,27 @@
   <mat-card-content>
     <div>
       <p>ORDER NUMBER</p>
-      <p><strong>{{order.order_id | uppercase}}</strong></p>
+      <p><strong>#1233342342</strong></p>
     </div>
-    <div *ngIf="order.bill">
+    <div>
       <p>TOTAL AMOUNT</p>
-      <p><strong>₹{{order.bill.total_price}}</strong></p>
+      <p><strong>₹ 500</strong></p>
     </div>
     <div>
       <p>ITEMS</p>
-      <p><strong>{{getPrintData()}}</strong></p>
+      <p><strong>1 X CCA letter, </strong><strong>1 X CCA letter, </strong><strong>1 X CCA letter, </strong><strong>1 X CCA letter, </strong><strong>1 X CCA letter, </strong><strong>1 X CCA letter, </strong><strong>1 X CCA letter</strong></p>
     </div>
     <div>
       <p>ORDERED ON</p>
-      <p><strong>{{order.createdAt}}</strong></p>
+      <p><strong>28th August, 2019, 16:00</strong></p>
     </div>
   </mat-card-content>
   <mat-card-actions>
     <button
       mat-raised-button
-      style="background-color: brown; color: whitesmoke"
-      (click)="viewDetails()"
+      style="background-color: #da4149f5; color: white"
     >
       View Details
-    </button>
-    <button
-      mat-raised-button
-      style="background-color: rgb(42, 99, 165); color: whitesmoke"
-    >
-      Complete Order
     </button>
   </mat-card-actions>
 </mat-card>

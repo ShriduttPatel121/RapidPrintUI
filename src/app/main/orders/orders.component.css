@@ -1,5 +1,12 @@
+.order-component {
+  background-color: #dcdada85;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  overflow-y: scroll;
+}
+
 .orders {
-  /* margin: 1.5rem; */
-  margin-top: 1rem;
-  /* width: 40%; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }

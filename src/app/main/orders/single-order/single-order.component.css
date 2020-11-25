@@ -1,5 +1,4 @@
 .order-details-component {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,6 +38,7 @@ display: flex;
 
 .order-details-table {
   width: 100%;
+  margin-top: 0.5rem;
 }
 
 .order-details-tbl-header th{
@@ -60,7 +60,7 @@ display: flex;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 }
 
 .order-summary {

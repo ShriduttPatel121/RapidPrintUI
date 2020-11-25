@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,14 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './single-order.component.html',
   styleUrls: ['./single-order.component.css']
 })
-export class SingleOrderComponent implements OnInit {
+export class SingleOrderComponent {
 
-  constructor(private route:ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.params.subscribe(params=>{
-      console.log(params.orderId);
-    })
-  }
+  constructor(private route:ActivatedRoute, private dialogRef: MatDialogRef<SingleOrderComponent>) { }
 
 }

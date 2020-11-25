@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Order } from './order.model';
 import { OrdersService } from './orders.service';
+import { SingleOrderComponent } from './single-order/single-order.component';
 
 @Component({
   selector: 'app-orders',
@@ -10,7 +12,7 @@ import { OrdersService } from './orders.service';
 export class OrdersComponent implements OnInit {
 
   orders:Order[]=[];
-  constructor(private ordersService:OrdersService) { }
+  constructor(private ordersService:OrdersService, public dialog: MatDialog) { }
 
   ngOnInit() {
 this.ordersService.fetchOrders(2).subscribe((response:{error:boolean,data:{meta:any,orders:Order[]}})=>{
@@ -24,4 +26,6 @@ this.ordersService.fetchOrders(2).subscribe((response:{error:boolean,data:{meta:
   this.orders=[...orders];
   });
 }
+
+
 }

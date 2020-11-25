@@ -1,7 +1,9 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from '../order.model';
+import { SingleOrderComponent } from '../single-order/single-order.component';
 
 @Component({
   selector: 'app-order',
@@ -11,17 +13,12 @@ import { Order } from '../order.model';
 export class OrderComponent implements OnInit {
 
   @Input() order:Order;
-  constructor(private router:Router,private route:ActivatedRoute) { 
-   
+  constructor(private router:Router,private route:ActivatedRoute, public dialog: MatDialog) {
+
   }
 
   ngOnInit() {
-  
-  }
 
-  viewDetails()
-  {
-    this.router.navigate([this.order.order_id],{relativeTo:this.route});
   }
   getPrintData()
   {
@@ -58,5 +55,9 @@ export class OrderComponent implements OnInit {
     else{
          return "INCOMPLETE";
     }
+  }
+
+  viewDetails() {
+    this.dialog.open(SingleOrderComponent, {height : "800px", width : "800px"});
   }
 }

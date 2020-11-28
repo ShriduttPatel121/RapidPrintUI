@@ -43,7 +43,7 @@ button:focus {
 
 .wallet-image {
   content: "";
-  background: url(../../../assets/images/wallet.svg) no-repeat;
+  background: url(../../../assets/images/wallet_color.svg) no-repeat;
 }
 
 .balance {

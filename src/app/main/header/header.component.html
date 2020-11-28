@@ -1,5 +1,5 @@
 <mat-toolbar class="header"
-  >RapidPrint<span class="example-spacer"></span>
+  ><a style="text-decoration: none; cursor: pointer; color: white;">RapidPrint</a><span class="example-spacer"></span>
   <button
     mat-button
     style="color: white; font-size: 20px"
@@ -18,48 +18,48 @@
   >
     REGISTER
   </button>
+  <div class="header-item wallet-container" (click)="openWallet()" (mouseenter)="badgeShow()"
+  (mouseleave)="badgeHide()">
   <button
     mat-icon-button
-    class="wallet"
-    title="My Wallet"
-    style="color: rgb(224, 236, 233)"
-    *ngIf="userIsAuthenticated"
-    (click)="openWallet()"
+    style="color: white"
   >
-    <mat-icon
+    <!-- <mat-icon
+    style="font-size: 1.4rem; margin-right: 0.5rem;"
       [inline]="true"
-      [matBadge]="walletBalance | currency: 'INR'"
-      [matBadgeOverlap]="false"
-      matBadgePosition="before"
-      matBadgeSize="large"
+      (mouseenter)="badgeShow()"
+      (mouseleave)="badgeHide()"
       >account_balance_wallet</mat-icon
-    >
+    > -->
+    <i class="wallet-image svg-config" >
+    </i>
   </button>
+  <div class="balance" [style.display]="balanceVisibility">
+    <h4>&#8377; {{ walletBalance }}</h4>
+  </div>
+    </div>
   <img
     [src]="imageUrl"
     alt="Avatar"
     class="avatar"
     *ngIf="userIsAuthenticated"
+    [matMenuTriggerFor]="menu"
   />
   <button
     mat-icon-button
     [matMenuTriggerFor]="menu"
-    *ngIf="userIsAuthenticated"
+    style="width: 1rem;"
+    #menuTrigger="matMenuTrigger"
+    (mouseenter)="menuTrigger.openMenu()"
   >
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #menu="matMenu" style="margin-top: 12px">
-    <button mat-menu-item (click)="myProfile()">My Profile</button>
-    <button mat-menu-item (click)="onLogout()">Logout</button>
-    <button mat-menu-item>Reset Password</button>
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item (click)="myProfile()">My Profile</button>
+      <button mat-menu-item (click)="onLogout()">Logout</button>
+      <button mat-menu-item>Reset Password</button>
+    </span>
+    <!--orders-->
   </mat-menu>
-  <!-- <button
-    mat-button
-    style="color: white;"
-    (click)="onLogout()"
-    routerLinkActive="mat-accent"
-    *ngIf="userIsAuthenticated"
-  >
-    Logout
-  </button> -->
 </mat-toolbar>

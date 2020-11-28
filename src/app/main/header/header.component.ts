@@ -14,8 +14,10 @@ import { WalletService } from '../wallet/wallet.service';
 })
 export class HeaderComponent implements OnInit {
   userIsAuthenticated: boolean = false;
-  walletBalance: string;
+  walletBalance: string = "250";
   imageUrl: string = "https://www.w3schools.com/howto/img_avatar.png";
+  badgeVisibilityHidden: boolean = true;
+  balanceVisibility : string = "none";
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
@@ -82,5 +84,15 @@ export class HeaderComponent implements OnInit {
       width: "850px",
       height: "500px",
     });
+  }
+
+  badgeShow () {
+    this.badgeVisibilityHidden = false;
+    this.balanceVisibility = "flex";
+  }
+
+  badgeHide () {
+    this.badgeVisibilityHidden = true;
+    this.balanceVisibility = "none";
   }
 }

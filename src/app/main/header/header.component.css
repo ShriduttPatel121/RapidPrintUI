@@ -1,7 +1,15 @@
 .header {
   background-color: #da4149f5;
-  color: white;
+  color:white;
   font-size: 40px;
+}
+
+.header-item {
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  cursor: pointer;
 }
 .example-spacer {
   flex: 1 1 auto;
@@ -14,14 +22,40 @@ button:focus {
 }
 .avatar {
   vertical-align: middle;
-  width: 50px;
-  height: 50px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
 }
 .wallet {
-  font-size: 36px;
-  margin-right: 3rem;
+  /* margin-right: 3rem; */
   cursor: pointer;
+}
+
+.wallet-container {
+  position: relative;
+}
+
+.svg-config {
+  width: 2.125rem;
+  height: 3.125rem;
+  display: inline-block;
+}
+
+.wallet-image {
+  content: "";
+  background: url(../../../assets/images/wallet.svg) no-repeat;
+}
+
+.balance {
+  position: absolute;
+  display: none;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  color: black;
+  box-shadow: 0 2px 4px 1px rgba(0,0,0,.2), 2px 0px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  top : 3.5rem;
+  animation: fad-in 400ms linear;
+  background-color: white;
 }
 .mat-badge-content {
   background: rgb(9, 13, 47);
@@ -33,4 +67,9 @@ button:focus {
   line-height: 40px;
   font-size: 12px;
   margin-bottom: 1rem;
+}
+
+@keyframes fad-in {
+  from { opacity : 0;}
+  to {opacity : 1;}
 }

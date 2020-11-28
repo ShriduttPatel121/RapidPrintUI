@@ -6,16 +6,40 @@
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
     0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   margin: -70px auto 0;
+  position: relative;
+  cursor: pointer;
 }
+
+.card {
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56),
+    0 4px 25px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 30%;
+  margin: 80px auto 0;
+  box-sizing: content-box;
+}
+
 .img-avatar {
   width: 130px;
   height: 130px;
+  border-radius: 50%;
 }
-.card {
-  width: 30%;
-  /* height: 80%; */
-  margin: 80px auto 0;
+
+.edit-profile-pic {
+  background-color: rgba(0, 0, 0, 0.287);
+  color: white;
+  position: absolute;
+  right: 0.75rem;
+  top: 6.4rem;
+  height: 2rem;
+  width: 100%;
+  text-align: center;
+  right: 0.4rem;
+  padding-top: 0.1rem;
+  font-size: 1.1rem;
+  animation: fad-in 200ms linear;
 }
+
 .example-full-width {
   width: 100%;
 }
@@ -24,4 +48,16 @@
 }
 .example-half-width {
   width: 50%;
+}
+
+.add-money-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+@keyframes fad-in {
+  from { opacity : 0;}
+  to {opacity : 1;}
 }

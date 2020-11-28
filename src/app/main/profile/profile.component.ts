@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   hide: boolean = true;
   hide_confirm: boolean = true;
+  editPic : string = "none";
   emailFormControl = new FormControl("", [
     Validators.required,
     Validators.email,
@@ -113,5 +114,13 @@ export class ProfileComponent implements OnInit {
         console.log(this.user);
         this.fillDetails();
       });
+  }
+
+  showEditPic () {
+    this.editPic = "block"
+  }
+
+  hideEditPic () {
+    this.editPic = "none"
   }
 }

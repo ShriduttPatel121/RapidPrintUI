@@ -1,7 +1,13 @@
 <mat-card class="card">
   <mat-card-header>
-    <div class="card-avatar">
-      <img [src]="imageUrl" alt="Your picture" class="img-avatar" />
+    <div class="card-avatar" (mouseenter)="showEditPic()"
+    (mouseleave)="hideEditPic()" (click)="filePicker.click()">
+      <img [src]="imageUrl" alt="Your profile picture" class="img-avatar" />
+      <div class="edit-profile-pic" [style.display]="editPic">
+        <!-- <mat-icon style="font-size: 0.95rem;">edit</mat-icon> -->
+        <mat-icon style="font-size: 0.95rem; position: relative;top: 1.5px;">camera_alt</mat-icon>
+        <span>Edit</span>
+      </div>
     </div>
   </mat-card-header>
   <mat-card-content style="margin-top: 2rem;">
@@ -10,9 +16,13 @@
         <mat-label>Email</mat-label>
         <input matInput [formControl]="emailFormControl" readonly />
       </mat-form-field>
-      <mat-form-field class="example-full-width field" appearance="outline">
+      <mat-form-field style="float: left; width: 55%;" class="example-full-width field" appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput [formControl]="nameFormControl" />
+      </mat-form-field>
+      <mat-form-field style="width: 35%; float: right;" class="field" appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput [value]="user?.gender" readonly />
       </mat-form-field>
       <!-- <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> Your password</mat-label>
@@ -89,25 +99,26 @@
         <mat-label>Birth Date</mat-label>
         <input matInput [value]="user.dob" readonly />
       </mat-form-field>
-      <mat-form-field style="width: 35%;" class="field" appearance="outline">
+      <!-- <mat-form-field style="width: 35%;" class="field" appearance="outline">
         <mat-label>Gender</mat-label>
         <input matInput [value]="user?.gender" readonly />
-      </mat-form-field>
+      </mat-form-field> -->
 
-      <button
+      <!-- <button
         style="float: right; margin-top: 1rem;"
         mat-raised-button
         color="primary"
         (click)="filePicker.click()"
       >
         Change Profile Image
-      </button>
-      <!-- <div *ngIf="imageUrl.length > 0">
-          <img [src]="imageUrl" [alt]="imageUrl" class="img-preview" />
-        </div> -->
+      </button> -->
+      <div class="add-money-container">
+        <span>Your current balance is: <strong>&#8377; 250</strong></span>
+        <button mat-raised-button style="background-color: #0fc0c5; color: white;">Add Money</button>
+      </div>
       <input
         type="file"
-        style="visibility: hidden;"
+        style="visibility: hidden; position: absolute;"
         #filePicker
         accept="image/*"
         (change)="handleUpload($event)"
@@ -119,7 +130,7 @@
       Update Profile
     </button>
     <button mat-raised-button color="warn" (click)="clearProfile()">
-      Reset Profile
+      Cancel
     </button>
   </mat-card-actions>
 </mat-card>

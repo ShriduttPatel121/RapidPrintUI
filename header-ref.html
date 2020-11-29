@@ -1,0 +1,52 @@
+<mat-toolbar class="header"
+  >RapidPrint<span class="example-spacer"></span>
+  <button
+    mat-button
+    style="color: white; font-size: 20px"
+    routerLink="/auth/login"
+    routerLinkActive="active"
+    *ngIf="!userIsAuthenticated"
+  >
+    LOGIN
+  </button>
+  <button
+    mat-button
+    style="color: white; font-size: 20px"
+    routerLink="/auth/signup"
+    routerLinkActive="active"
+    *ngIf="!userIsAuthenticated"
+  >
+    REGISTER
+  </button>
+  <button
+    mat-icon-button
+    class="wallet"
+    title="My Wallet"
+    style="color: rgb(224, 236, 233)"
+    (click)="openWallet()"
+  >
+    <mat-icon
+    style="font-size: 2rem;"
+      matBadgeSize="large"
+      >account_balance_wallet</mat-icon
+    >
+    <span style="font-size: 1rem;">wallet</span>
+  </button>
+  <img
+    [src]="imageUrl"
+    alt="Avatar"
+    class="avatar"
+    *ngIf="userIsAuthenticated"
+  />
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" style="margin-top: 12px">
+    <button mat-menu-item (click)="myProfile()">My Profile</button>
+    <button mat-menu-item (click)="onLogout()">Logout</button>
+    <button mat-menu-item>Reset Password</button>
+  </mat-menu>
+</mat-toolbar>

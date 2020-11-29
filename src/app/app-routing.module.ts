@@ -60,25 +60,25 @@ const routes: Routes = [
         path: "add-details",
         component: AddDetailsComponent,
         pathMatch: "full",
-        canActivate: [ExistingUserGuard],
+        canActivate: [],
       },
       {
         path: "profile",
         component: ProfileComponent,
         pathMatch: "full",
-        canActivate: [AuthGuard],
+        canActivate: [],
       },
       {
         path: "confirm-payment",
         component: ConfirmPaymentComponent,
         pathMatch: "full",
-        canActivate: [AuthGuard],
+        canActivate: [],
       },
       {
         path: "checkout",
         component: CheckoutComponent,
         pathMatch: "full",
-        canActivate: [AuthGuard],
+        canActivate: [],
       },
       {
         path: "orders",
@@ -87,7 +87,7 @@ const routes: Routes = [
       },
       {
         path:"orders/:orderId",
-        component:SingleOrderComponent
+        component: SingleOrderComponent
       }
     ]
   },

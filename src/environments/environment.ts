@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  printApi:'https://api.rapidprint.tk',
-  offerApi:'https://offer.rapidprint.tk',
-  vendorApi:'https://search.rapidprint.tk'
+  printApi:'https://api.rapidprint.ml',
+  offerApi:'https://offer.rapidprint.ml',
+  vendorApi:'https://search.rapidprint.ml'
 };
 
 /*

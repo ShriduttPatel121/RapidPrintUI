@@ -145,7 +145,8 @@ let config = new AuthServiceConfig([
     ForgotPasswordComponent,
     ApplyOfferComponent,
     WalletComponent,
-    EditPrintComponent
+    EditPrintComponent,
+    SingleOrderComponent
   ],
 })
 export class AppModule {}

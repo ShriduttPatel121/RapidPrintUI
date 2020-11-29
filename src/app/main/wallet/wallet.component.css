@@ -1,12 +1,94 @@
+.wallet-component {
+  display: flex;
+  height: 100%;
+}
+
+.add-money-container {
+  width: 50%;
+  height: 100%;
+}
+
 .amountInput {
   /* width: 250px; */
-  margin-top: 3rem;
-  margin-left: 15rem;
   font-size: 28px;
   line-height: 32px;
   font-weight: 400;
+  margin-top: 1rem;
+}
+
+.money-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .addMoneyBtn {
-  margin-left: 15rem;
-  width: 15rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  background-color: #cc3139de;
+  color: white;
+}
+
+.statement-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 0.8rem;
+  height: 100%;
+}
+
+.statement-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 0.5rem;
+  background-color: #ec3e47c4;
+  color: white;
+}
+
+.statements {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 24.5rem;
+}
+
+.statement {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 2px solid #969292;
+}
+
+.statement-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.statement-date {
+  color: #777777;
+}
+
+.amount {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 0.4rem;
+}
+
+.credit {
+  color: #328183;
+}
+
+.debit {
+  color: #da4149f5;
+}
+
+/* h3 {
+  padding: 0;
+  margin: 0;
+} */

@@ -1,7 +1,8 @@
-<div>
-  <h2>Add Money to RapidPrint Wallet</h2>
+<div class="wallet-component">
+<div class="add-money-container">
+  <h2>Add Money to Wallet</h2>
   <h4>Your Current Balance is {{ currBalance | currency: "INR" }}</h4>
-  <div>
+  <div class="money-input-container">
     <mat-form-field appearance="fill" class="amountInput">
       <input
         matInput
@@ -15,12 +16,97 @@
   </div>
   <div class="addMoneyBtn">
     <button
-      style="width: 100%"
       mat-raised-button
-      color="accent"
+      class="btn"
       (click)="addAmount()"
     >
-      Add Money
+      ADD
     </button>
   </div>
+</div>
+<div class="statement-container">
+  <h2>Wallet transactions</h2>
+  <div class="statement-header">
+    <h3>
+      Statement Details
+    </h3>
+    <h3>
+      Amount
+    </h3>
+  </div>
+  <div class="statements">
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 24 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+      <strong class="credit">+&#8377; 250</strong>
+    </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 28 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+        <strong class="debit">-&#8377; 50</strong>
+      </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 28 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+        <strong class="debit">-&#8377; 50</strong>
+      </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 28 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+        <strong class="debit">-&#8377; 50</strong>
+      </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 28 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+        <strong class="debit">-&#8377; 50</strong>
+      </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 24 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+      <strong class="credit">+&#8377; 250</strong>
+    </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 24 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+      <strong class="credit">+&#8377; 250</strong>
+    </div>
+    </div>
+    <div class="statement">
+      <div class="statement-details">
+        <strong>ID: #1225332342</strong>
+        <strong class="statement-date">Date: 24 Feb, 2020</strong>
+      </div>
+      <div class="amount">
+      <strong class="credit">+&#8377; 250</strong>
+    </div>
+    </div>
+  </div>
+</div>
 </div>

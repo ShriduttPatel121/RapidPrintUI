@@ -7,9 +7,10 @@ import {
   FormGroupDirective,
   NgForm,
 } from "@angular/forms";
-import { ErrorStateMatcher } from "@angular/material";
+import { ErrorStateMatcher, MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { UserService } from 'src/app/main/user/user.service';
+import { AddDetailsComponent } from './add-details/add-details.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -50,7 +51,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    public AddDetailsdialog: MatDialog
   ) {}
   signInWithGoogle(): void {
     this.authService
@@ -60,7 +62,8 @@ export class SignupComponent implements OnInit {
         console.log(value);
         this.userService.setSignupType("GMAIL");
         this.userService.setSignupToken(value.idToken);
-        this.router.navigate(["/add-details"]);
+        // this.router.navigate(["/add-details"]);
+        this.AddDetailsdialog.open(AddDetailsComponent,{height:"600px",width:"800px"});
       })
       .catch((error) => {
         console.log("sign Up unsuccessful..");
@@ -85,7 +88,9 @@ export class SignupComponent implements OnInit {
     this.userService.setPassword(password);
     this.userService.setSignupType("EMAIL");
     this.clear();
-    this.router.navigate(["/add-details"]);
+    // this.router.navigate(["/add-details"]);
+    this.AddDetailsdialog.open(AddDetailsComponent,{height:"600px",width:"800px"});
+
   }
   isValid() {
     return this.emailFormControl.valid && this.passwordFormControl.valid;

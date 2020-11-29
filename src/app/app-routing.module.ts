@@ -12,7 +12,7 @@ import { CheckoutComponent } from './main/payment/checkout/checkout.component';
 import { ConfirmPaymentComponent } from './main/payment/confirm-payment/confirm-payment.component';
 import { AddPrintComponent } from './main/print/add-print/add-print.component';
 import { ProfileComponent } from './main/profile/profile.component';
-import { AddDetailsComponent } from './main/user/add-details/add-details.component';
+import { AddDetailsComponentRef } from './main/user/add-details/add-details.component';
 import { VendorListComponent } from './main/vendor/vendor-list/vendor-list.component';
 
 
@@ -58,7 +58,7 @@ const routes: Routes = [
       },
       {
         path: "add-details",
-        component: AddDetailsComponent,
+        component: AddDetailsComponentRef,
         pathMatch: "full",
         canActivate: [ExistingUserGuard],
       },

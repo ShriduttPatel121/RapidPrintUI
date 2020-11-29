@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   templateUrl: "./add-details.component.html",
   styleUrls: ["./add-details.component.css"],
 })
-export class AddDetailsComponent implements OnInit {
+export class AddDetailsComponentRef implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;

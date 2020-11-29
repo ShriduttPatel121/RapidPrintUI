@@ -32,7 +32,6 @@ import { LocalStoreService } from './main/print/localStore.service';
 import { PreviewPrintComponent } from './main/print/preview-print/preview-print.component';
 import { PrintService } from './main/print/print.service';
 import { ProfileComponent } from './main/profile/profile.component';
-import { AddDetailsComponent } from './main/user/add-details/add-details.component';
 import { UserService } from './main/user/user.service';
 import { VendorListComponent } from './main/vendor/vendor-list/vendor-list.component';
 import { VendorProfileComponent } from './main/vendor/vendor-profile/vendor-profile.component';
@@ -45,6 +44,8 @@ import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
 import { EditPrintComponent } from './main/print/edit-print/edit-print.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { AddDetailsComponent } from './auth/signup/add-details/add-details.component';
+import { AddDetailsComponentRef } from './main/user/add-details/add-details.component';
 
 
 let config = new AuthServiceConfig([
@@ -65,7 +66,7 @@ let config = new AuthServiceConfig([
     PreviewPrintComponent,
     VendorListComponent,
     SignupComponent,
-    AddDetailsComponent,
+    AddDetailsComponentRef,
     LoginComponent,
     ForgotPasswordComponent,
     ProfileComponent,
@@ -81,7 +82,8 @@ let config = new AuthServiceConfig([
     SingleOrderComponent,
     MainComponent,
     AuthComponent,
-    EditPrintComponent
+    EditPrintComponent,
+    AddDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -145,7 +147,8 @@ let config = new AuthServiceConfig([
     ForgotPasswordComponent,
     ApplyOfferComponent,
     WalletComponent,
-    EditPrintComponent
+    EditPrintComponent,
+    AddDetailsComponent
   ],
 })
 export class AppModule {}

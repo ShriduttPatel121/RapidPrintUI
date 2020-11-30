@@ -63,7 +63,7 @@ export class SignupComponent implements OnInit {
         this.userService.setSignupType("GMAIL");
         this.userService.setSignupToken(value.idToken);
         // this.router.navigate(["/add-details"]);
-        this.AddDetailsdialog.open(AddDetailsComponent,{height:"600px",width:"800px"});
+        this.AddDetailsdialog.open(AddDetailsComponent,{panelClass: "popup"}).addPanelClass("popup");
       })
       .catch((error) => {
         console.log("sign Up unsuccessful..");
@@ -89,7 +89,7 @@ export class SignupComponent implements OnInit {
     this.userService.setSignupType("EMAIL");
     this.clear();
     // this.router.navigate(["/add-details"]);
-    this.AddDetailsdialog.open(AddDetailsComponent,{height:"600px",width:"800px"});
+    this.AddDetailsdialog.open(AddDetailsComponent,{height:"400px",width:"800px"});
 
   }
   isValid() {

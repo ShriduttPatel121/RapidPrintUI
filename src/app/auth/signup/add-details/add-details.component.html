@@ -1,3 +1,61 @@
-<p>
-  add-details works!
-</p>
+<mat-card class="card">
+  <mat-card-header>
+    <div class="card-avatar" (click)="filePicker.click()">
+      <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Your profile picture" class="img-avatar" />
+      <div class="edit-profile-pic" [style.display]="editPic">
+        <mat-icon style="font-size: 0.95rem; position: relative;top: 1.5px;">camera_alt</mat-icon>
+        <span>Add</span>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content style="margin-top: 2rem;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width field" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput/>
+      </mat-form-field>
+      <mat-form-field style="float: left; width: 45%;" class="example-full-width field" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field style="width: 45%; float: right;" class="field" appearance="outline">
+        <mat-label>Gender</mat-label>
+        <input matInput [value]="user?.gender" readonly />
+      </mat-form-field>
+      <mat-form-field
+        style="float: left; width: 45%;"
+        class="field"
+        appearance="outline"
+      >
+        <mat-label>Mobile No.</mat-label>
+        <input
+          matInput
+          pattern="[789][0-9]{9}"
+        />
+        <mat-icon matSuffix>phone</mat-icon>
+        <!-- <mat-error>
+          Please enter valid mobile number
+        </mat-error> -->
+      </mat-form-field>
+      <mat-form-field
+        style="float: right; width: 45%;"
+        class="field"
+        appearance="outline"
+      >
+        <mat-label>Birth Date</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <input
+        type="file"
+        style="visibility: hidden; position: absolute;"
+        #filePicker
+        accept="image/*"
+      />
+    </form>
+  </mat-card-content>
+  <mat-card-actions style="text-align: center;">
+    <button mat-raised-button class="continue-btn">
+      Continue
+    </button>
+  </mat-card-actions>
+</mat-card>

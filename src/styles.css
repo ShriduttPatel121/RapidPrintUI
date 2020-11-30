@@ -62,3 +62,12 @@ div.mat-paginator-range-label
 #offer-form .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
   color: #cecece;
 }
+
+.popup  mat-dialog-container {
+  padding: 0px;
+  width: fit-content;
+  overflow: visible;
+  height: 100%;
+  background-color: transparent;
+  box-shadow: none;
+}

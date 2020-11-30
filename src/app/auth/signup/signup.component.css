@@ -72,3 +72,10 @@ button.signup-button:not(disabled) {
   text-decoration: none;
   color: rgb(67, 133, 245);
 }
+
+.popup {
+  /* overflow: visible;
+  height: 200px;
+  padding: 0;
+  width: fit-content; */
+}

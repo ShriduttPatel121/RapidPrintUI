@@ -64,6 +64,13 @@
   font-size: 1.3rem;
 }
 
+.close-btn {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  cursor: pointer;
+}
+
 @keyframes fad-in {
   from { opacity : 0;}
   to {opacity : 1;}

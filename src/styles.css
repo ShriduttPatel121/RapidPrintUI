@@ -71,3 +71,7 @@ div.mat-paginator-range-label
   background-color: transparent;
   box-shadow: none;
 }
+
+.timing-popup mat-dialog-container {
+  padding: 0;
+}

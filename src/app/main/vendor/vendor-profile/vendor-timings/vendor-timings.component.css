@@ -1,0 +1,40 @@
+.vendor_timing-component {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.shop-name {
+  display: flex;
+  padding: 0.3rem;
+  background-color: #ec3e47c4;
+  position: relative;
+  color: white;
+  justify-content: space-between;
+}
+
+.close-icon {
+  right: 2%;
+  top: 11%;
+  position: absolute;
+}
+
+.vendor-timing-header {
+  background-color: #ec3e47c4;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.vendor-timing-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.vendor-timing-day {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 2px solid #969292;
+}

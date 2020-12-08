@@ -12,32 +12,27 @@
 }
 
 .filter-title {
-  margin-bottom: 0.2rem;
-  color: rgba(0, 0, 0, 0.75);
+  margin: 0 auto 0.8rem auto;
 }
 
 .filter-margin-left {
   margin-left: 1rem;
 }
 
-.filter-field-color {
-  /* background-color: white; */
-}
-
 .search {
   margin-left: 1rem;
-  width: 280px;
+  width: 20rem;
 }
 
 .enter-location-width {
-  width: 165px;
+  width: 12rem;
 }
 
 .search-icon-container {
   position: absolute;
   height: 24px;
   top: 24%;
-  left: 8.5%;
+  left: 6.5%;
   color: #848282;
 }
 .vendorPaginator {
@@ -69,6 +64,7 @@
 
 .shop-card-list {
   overflow-y: scroll;
+  height: 90%;
 }
 
 .map-filter-container {
@@ -87,8 +83,8 @@
   box-shadow: 1px 2px 9px 2px rgba(0, 0, 0, 0.75);
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0;
-  height: 34vh;
+  padding: 1rem;
+  height: 36vh;
 }
 .sortandfilters .search-btn-container {
   width: 100%;
@@ -105,6 +101,8 @@
 .search-btn {
   background-color: #4385f5;
   color: white;
+  padding: 0 1.5rem;
+  font-size: 1.1rem;
 }
 
 .map-container {

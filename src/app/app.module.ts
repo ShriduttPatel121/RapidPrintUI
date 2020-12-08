@@ -46,6 +46,7 @@ import { EditPrintComponent } from './main/print/edit-print/edit-print.component
 import {MatChipsModule} from '@angular/material/chips';
 import { AddDetailsComponent } from './auth/signup/add-details/add-details.component';
 import { AddDetailsComponentRef } from './main/user/add-details/add-details.component';
+import { VendorTimingsComponent } from './main/vendor/vendor-profile/vendor-timings/vendor-timings.component';
 
 
 let config = new AuthServiceConfig([
@@ -83,7 +84,8 @@ let config = new AuthServiceConfig([
     MainComponent,
     AuthComponent,
     EditPrintComponent,
-    AddDetailsComponent
+    AddDetailsComponent,
+    VendorTimingsComponent
   ],
   imports: [
     BrowserModule,
@@ -149,7 +151,8 @@ let config = new AuthServiceConfig([
     WalletComponent,
     EditPrintComponent,
     AddDetailsComponent,
-    SingleOrderComponent
+    SingleOrderComponent,
+    VendorTimingsComponent
   ],
 })
 export class AppModule {}

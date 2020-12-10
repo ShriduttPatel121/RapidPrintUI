@@ -2,7 +2,8 @@ import { DatePipe } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule, MatRadioModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatExpansionModule, MatSlideToggleModule, MatListModule, MatSliderModule, MatInputModule, MatSelectModule, MatDialogModule, MatProgressBarModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatAutocompleteModule, MatBadgeModule, MatCheckboxModule, MatPaginatorModule } from '@angular/material';
+import { MatToolbarModule, MatRadioModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatExpansionModule, MatSlideToggleModule, MatListModule, MatSliderModule, MatInputModule, MatSelectModule, MatDialogModule, MatProgressBarModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatAutocompleteModule, MatBadgeModule, MatCheckboxModule, MatPaginatorModule} from '@angular/material';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthServiceConfig, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 import { Ng5SliderModule } from 'ng5-slider';
@@ -120,6 +121,7 @@ let config = new AuthServiceConfig([
     MatBadgeModule,
     MatCheckboxModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [

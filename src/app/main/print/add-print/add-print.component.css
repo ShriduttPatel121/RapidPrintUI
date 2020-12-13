@@ -79,6 +79,15 @@
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  /* display: none; */
+}
+
+.no-print-added {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .print-item {

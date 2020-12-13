@@ -58,11 +58,22 @@
   height: 24.5rem;
 }
 
+.no-statement-available {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  display: none;
+}
+
 .statement {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
   border-bottom: 2px solid #969292;
+  /* display: none; */
 }
 
 .statement-details {
